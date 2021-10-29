@@ -8,24 +8,19 @@
     "net5.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Pedro\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\rebel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Dev\\VB.NET\\ProjetoLanchonete\\ProjetoLanchonete\\ProjetoLanchonete.vbproj",
+      "projectUniqueName": "C:\\Users\\rebel\\Source\\Repos\\pkielblock\\ProjetoLanchonete\\ProjetoLanchonete\\ProjetoLanchonete.vbproj",
       "projectName": "ProjetoLanchonete",
-      "projectPath": "C:\\Dev\\VB.NET\\ProjetoLanchonete\\ProjetoLanchonete\\ProjetoLanchonete.vbproj",
-      "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Dev\\VB.NET\\ProjetoLanchonete\\ProjetoLanchonete\\obj\\",
+      "projectPath": "C:\\Users\\rebel\\Source\\Repos\\pkielblock\\ProjetoLanchonete\\ProjetoLanchonete\\ProjetoLanchonete.vbproj",
+      "packagesPath": "C:\\Users\\rebel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rebel\\Source\\Repos\\pkielblock\\ProjetoLanchonete\\ProjetoLanchonete\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\rebel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -68,7 +63,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
