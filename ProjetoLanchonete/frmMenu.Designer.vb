@@ -75,14 +75,26 @@ Partial Class frmMenu
         Me.txtCadastrarLogin = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.tbRegistrarPedido = New System.Windows.Forms.TabPage()
+        Me.txtNomeCliente = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.txtDataPedido = New System.Windows.Forms.DateTimePicker()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.btnCadastrarPedido = New System.Windows.Forms.Button()
+        Me.lblPreco = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.nmrQuantidade = New System.Windows.Forms.NumericUpDown()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cmbProdutos = New System.Windows.Forms.ComboBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.tbVisualizarPedidos = New System.Windows.Forms.TabPage()
+        Me.dgvDados = New System.Windows.Forms.DataGridView()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dataPedido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.produto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.qtdProduto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precoPedido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tbControle.SuspendLayout()
         Me.tbInicio.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,6 +104,8 @@ Partial Class frmMenu
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbRegistrarPedido.SuspendLayout()
         CType(Me.nmrQuantidade, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tbVisualizarPedidos.SuspendLayout()
+        CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tbControle
@@ -100,6 +114,7 @@ Partial Class frmMenu
         Me.tbControle.Controls.Add(Me.tbCadastro)
         Me.tbControle.Controls.Add(Me.tbLogin)
         Me.tbControle.Controls.Add(Me.tbRegistrarPedido)
+        Me.tbControle.Controls.Add(Me.tbVisualizarPedidos)
         Me.tbControle.Location = New System.Drawing.Point(1, 1)
         Me.tbControle.Name = "tbControle"
         Me.tbControle.SelectedIndex = 0
@@ -629,8 +644,12 @@ Partial Class frmMenu
         'tbRegistrarPedido
         '
         Me.tbRegistrarPedido.BackColor = System.Drawing.Color.SkyBlue
-        Me.tbRegistrarPedido.Controls.Add(Me.Button1)
+        Me.tbRegistrarPedido.Controls.Add(Me.txtNomeCliente)
+        Me.tbRegistrarPedido.Controls.Add(Me.Label14)
+        Me.tbRegistrarPedido.Controls.Add(Me.txtDataPedido)
         Me.tbRegistrarPedido.Controls.Add(Me.Label13)
+        Me.tbRegistrarPedido.Controls.Add(Me.btnCadastrarPedido)
+        Me.tbRegistrarPedido.Controls.Add(Me.lblPreco)
         Me.tbRegistrarPedido.Controls.Add(Me.Label12)
         Me.tbRegistrarPedido.Controls.Add(Me.Label11)
         Me.tbRegistrarPedido.Controls.Add(Me.nmrQuantidade)
@@ -645,38 +664,72 @@ Partial Class frmMenu
         Me.tbRegistrarPedido.Text = "Registrar Pedidos"
         Me.tbRegistrarPedido.ToolTipText = "Registro de Pedidos"
         '
-        'nmrQuantidade
+        'txtNomeCliente
         '
-        Me.nmrQuantidade.Location = New System.Drawing.Point(336, 117)
-        Me.nmrQuantidade.Name = "nmrQuantidade"
-        Me.nmrQuantidade.Size = New System.Drawing.Size(120, 23)
-        Me.nmrQuantidade.TabIndex = 4
+        Me.txtNomeCliente.Location = New System.Drawing.Point(73, 171)
+        Me.txtNomeCliente.Name = "txtNomeCliente"
+        Me.txtNomeCliente.Size = New System.Drawing.Size(225, 23)
+        Me.txtNomeCliente.TabIndex = 57
         '
-        'Label10
+        'Label14
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(336, 98)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(75, 15)
-        Me.Label10.TabIndex = 2
-        Me.Label10.Text = "Quantidade: "
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(73, 153)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(86, 15)
+        Me.Label14.TabIndex = 56
+        Me.Label14.Text = "Nome Cliente: "
         '
-        'Label9
+        'txtDataPedido
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(90, 98)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(56, 15)
-        Me.Label9.TabIndex = 1
-        Me.Label9.Text = "Produto: "
+        Me.txtDataPedido.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.txtDataPedido.Location = New System.Drawing.Point(319, 171)
+        Me.txtDataPedido.Name = "txtDataPedido"
+        Me.txtDataPedido.Size = New System.Drawing.Size(143, 23)
+        Me.txtDataPedido.TabIndex = 55
+        Me.txtDataPedido.Value = New Date(2021, 11, 22, 0, 0, 0, 0)
         '
-        'cmbProdutos
+        'Label13
         '
-        Me.cmbProdutos.FormattingEnabled = True
-        Me.cmbProdutos.Location = New System.Drawing.Point(90, 116)
-        Me.cmbProdutos.Name = "cmbProdutos"
-        Me.cmbProdutos.Size = New System.Drawing.Size(225, 23)
-        Me.cmbProdutos.TabIndex = 0
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(319, 153)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(74, 15)
+        Me.Label13.TabIndex = 54
+        Me.Label13.Text = "Data Pedido:"
+        '
+        'btnCadastrarPedido
+        '
+        Me.btnCadastrarPedido.Image = CType(resources.GetObject("btnCadastrarPedido.Image"), System.Drawing.Image)
+        Me.btnCadastrarPedido.Location = New System.Drawing.Point(198, 307)
+        Me.btnCadastrarPedido.Name = "btnCadastrarPedido"
+        Me.btnCadastrarPedido.Size = New System.Drawing.Size(155, 68)
+        Me.btnCadastrarPedido.TabIndex = 53
+        Me.btnCadastrarPedido.Text = "Cadastrar"
+        Me.btnCadastrarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCadastrarPedido.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.btnCadastrarPedido.UseVisualStyleBackColor = True
+        '
+        'lblPreco
+        '
+        Me.lblPreco.AutoSize = True
+        Me.lblPreco.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.lblPreco.ForeColor = System.Drawing.Color.Red
+        Me.lblPreco.Location = New System.Drawing.Point(368, 234)
+        Me.lblPreco.Name = "lblPreco"
+        Me.lblPreco.Size = New System.Drawing.Size(71, 32)
+        Me.lblPreco.TabIndex = 52
+        Me.lblPreco.Text = "00.00"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label12.Location = New System.Drawing.Point(92, 234)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(231, 32)
+        Me.Label12.TabIndex = 51
+        Me.Label12.Text = "Preço:                  R$"
         '
         'Label11
         '
@@ -688,38 +741,89 @@ Partial Class frmMenu
         Me.Label11.TabIndex = 50
         Me.Label11.Text = "Registro de Pedidos"
         '
-        'Label12
+        'nmrQuantidade
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label12.Location = New System.Drawing.Point(90, 207)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(231, 32)
-        Me.Label12.TabIndex = 51
-        Me.Label12.Text = "Preço:                  R$"
+        Me.nmrQuantidade.Location = New System.Drawing.Point(319, 109)
+        Me.nmrQuantidade.Name = "nmrQuantidade"
+        Me.nmrQuantidade.Size = New System.Drawing.Size(143, 23)
+        Me.nmrQuantidade.TabIndex = 4
         '
-        'Label13
+        'Label10
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label13.ForeColor = System.Drawing.Color.Red
-        Me.Label13.Location = New System.Drawing.Point(366, 207)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(71, 32)
-        Me.Label13.TabIndex = 52
-        Me.Label13.Text = "00.00"
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(319, 90)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(75, 15)
+        Me.Label10.TabIndex = 2
+        Me.Label10.Text = "Quantidade: "
         '
-        'Button1
+        'Label9
         '
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(214, 288)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(155, 68)
-        Me.Button1.TabIndex = 53
-        Me.Button1.Text = "Cadastrar"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(73, 90)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(56, 15)
+        Me.Label9.TabIndex = 1
+        Me.Label9.Text = "Produto: "
+        '
+        'cmbProdutos
+        '
+        Me.cmbProdutos.FormattingEnabled = True
+        Me.cmbProdutos.Location = New System.Drawing.Point(73, 108)
+        Me.cmbProdutos.Name = "cmbProdutos"
+        Me.cmbProdutos.Size = New System.Drawing.Size(225, 23)
+        Me.cmbProdutos.TabIndex = 0
+        '
+        'tbVisualizarPedidos
+        '
+        Me.tbVisualizarPedidos.BackColor = System.Drawing.Color.SkyBlue
+        Me.tbVisualizarPedidos.Controls.Add(Me.dgvDados)
+        Me.tbVisualizarPedidos.Location = New System.Drawing.Point(4, 24)
+        Me.tbVisualizarPedidos.Name = "tbVisualizarPedidos"
+        Me.tbVisualizarPedidos.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbVisualizarPedidos.Size = New System.Drawing.Size(580, 396)
+        Me.tbVisualizarPedidos.TabIndex = 4
+        Me.tbVisualizarPedidos.Text = "Visualizar Pedidos"
+        '
+        'dgvDados
+        '
+        Me.dgvDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvDados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.cliente, Me.dataPedido, Me.produto, Me.qtdProduto, Me.precoPedido})
+        Me.dgvDados.Location = New System.Drawing.Point(0, 0)
+        Me.dgvDados.Name = "dgvDados"
+        Me.dgvDados.RowTemplate.Height = 25
+        Me.dgvDados.Size = New System.Drawing.Size(580, 396)
+        Me.dgvDados.TabIndex = 0
+        '
+        'id
+        '
+        Me.id.HeaderText = "ID"
+        Me.id.Name = "id"
+        '
+        'cliente
+        '
+        Me.cliente.HeaderText = "Cliente"
+        Me.cliente.Name = "cliente"
+        '
+        'dataPedido
+        '
+        Me.dataPedido.HeaderText = "Data"
+        Me.dataPedido.Name = "dataPedido"
+        '
+        'produto
+        '
+        Me.produto.HeaderText = "Produto"
+        Me.produto.Name = "produto"
+        '
+        'qtdProduto
+        '
+        Me.qtdProduto.HeaderText = "Quantidade"
+        Me.qtdProduto.Name = "qtdProduto"
+        '
+        'precoPedido
+        '
+        Me.precoPedido.HeaderText = "Preço"
+        Me.precoPedido.Name = "precoPedido"
         '
         'frmMenu
         '
@@ -747,6 +851,8 @@ Partial Class frmMenu
         Me.tbRegistrarPedido.ResumeLayout(False)
         Me.tbRegistrarPedido.PerformLayout()
         CType(Me.nmrQuantidade, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tbVisualizarPedidos.ResumeLayout(False)
+        CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -809,6 +915,18 @@ Partial Class frmMenu
     Friend WithEvents nmrQuantidade As NumericUpDown
     Friend WithEvents Label12 As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnCadastrarPedido As Button
+    Friend WithEvents lblPreco As Label
+    Friend WithEvents tbVisualizarPedidos As TabPage
+    Friend WithEvents dgvDados As DataGridView
+    Friend WithEvents txtNomeCliente As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents txtDataPedido As DateTimePicker
     Friend WithEvents Label13 As Label
+    Friend WithEvents id As DataGridViewTextBoxColumn
+    Friend WithEvents cliente As DataGridViewTextBoxColumn
+    Friend WithEvents dataPedido As DataGridViewTextBoxColumn
+    Friend WithEvents produto As DataGridViewTextBoxColumn
+    Friend WithEvents qtdProduto As DataGridViewTextBoxColumn
+    Friend WithEvents precoPedido As DataGridViewTextBoxColumn
 End Class

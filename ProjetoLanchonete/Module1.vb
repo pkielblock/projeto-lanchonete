@@ -2,7 +2,8 @@
     Public db As New ADODB.Connection
     Public rs As New ADODB.Recordset
     Public sql, login As String
-    Public cont As Integer
+    Public cont, id As Integer
+    Public preco As Double
     Public resp As String
 
     Sub connectDb()
@@ -60,5 +61,22 @@
             MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
+    Sub carregarDados()
+        Try
+            sql = "select * from tbpedidos order by cliente asc"
+            rs = db.Execute(sql)
 
+            With frmMenu.dgvDados
+                cont = 1
+                .Rows.Clear()
+                Do While rs.EOF = False
+                    .Rows.Add(cont, rs.Fields(0).Value, rs.Fields(1).Value, rs.Fields(2).Value, rs.Fields(3).Value, rs.Fields(4).Value)
+                    rs.MoveNext()
+                    cont += 1
+                Loop
+            End With
+        Catch ex As Exception
+            MsgBox("Error", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Warning")
+        End Try
+    End Sub
 End Module

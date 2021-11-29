@@ -25,15 +25,9 @@
                     cmbProdutos.Items.Add(rs.Fields(1).Value)
                 End If
             Next
-
-
-
         Catch ex As Exception
             MsgBox("Erro" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
-
-
-
     End Sub
 
     Private Sub btnCadastar_Click(sender As Object, e As EventArgs) Handles btnCadastar.Click
@@ -233,6 +227,85 @@
             End If
         Catch ex As Exception
             MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+        End Try
+    End Sub
+
+    Private Sub btnPesquisarLogin_Click(sender As Object, e As EventArgs) Handles btnPesquisarLogin.Click
+        Try
+            If txtCadastrarLogin.Text = "" Then
+                MsgBox("Preencha o Campo de Login!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
+                Exit Sub
+            End If
+            sql = "select * from tblogin where login='" & txtCadastrarLogin.Text & "'"
+            rs = db.Execute(sql)
+            If rs.EOF = False Then
+                txtCadastrarEmail.Text = rs.Fields(1).Value
+                txtCadastrarSenha.Text = rs.Fields(2).Value
+            Else
+                MsgBox("Login não localizado", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            End If
+        Catch ex As Exception
+            MsgBox("Erro" & ex.Message(), MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+        End Try
+    End Sub
+
+    Private Sub btnAtualizarLogin_Click(sender As Object, e As EventArgs) Handles btnAtualizarLogin.Click
+        Try
+            If txtCadastrarLogin.Text = "" Or
+                txtCadastrarEmail.Text = "" Or
+                txtCadastrarSenha.Text = "" Then
+                MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
+                Exit Sub
+            Else
+                sql = "update tblogin set login = '" & txtCadastrarLogin.Text & "', " &
+                                                   "email = '" & txtCadastrarEmail.Text & "', " &
+                                                   "senha = '" & txtCadastrarSenha.Text & "'"
+                rs = db.Execute(sql)
+                MsgBox("Dados Atualizados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
+                limparLogin()
+            End If
+        Catch ex As Exception
+            MsgBox("Erro" & ex.Message(), MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+        End Try
+    End Sub
+
+    Private Sub nmrQuantidade_ValueChanged(sender As Object, e As EventArgs) Handles nmrQuantidade.ValueChanged
+        Try
+            If cmbProdutos.Text = "" Then
+                MsgBox("Preencha o Produto", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
+            End If
+            sql = "select * from tbprodutos where produtos='" & cmbProdutos.Text & "'"
+            rs = db.Execute(sql)
+            If rs.EOF = False Then
+                lblPreco.Text = (rs.Fields(2).Value) * nmrQuantidade.Value
+                preco = lblPreco.Text
+            Else
+                MsgBox("Login não localizado", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            End If
+        Catch ex As Exception
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+        End Try
+    End Sub
+
+    Private Sub btnCadastrarPedido_Click(sender As Object, e As EventArgs) Handles btnCadastrarPedido.Click
+        Try
+            If cmbProdutos.Text = "" Or
+                nmrQuantidade.Value = 0 Or
+                txtNomeCliente.Text = "" Or
+                txtDataPedido.Text = "" Then
+                MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
+                Exit Sub
+            End If
+            sql = "insert into tbpedidos values('" & txtNomeCliente.Text & "', " &
+                                                 "'" & txtDataPedido.Text & "', " &
+                                                 "'" & cmbProdutos.Text & "', " &
+                                                 "'" & nmrQuantidade.Value & "', " &
+                                                 "'" & preco & "')"
+            rs = db.Execute(sql)
+            carregarDados()
+            MsgBox("Dados Gravados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
+        Catch ex As Exception
+            MsgBox("Erro" & ex.Message(), MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
 End Class
