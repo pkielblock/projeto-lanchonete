@@ -9,7 +9,7 @@
             If txtLogin.Text = "" Or txtSenha.Text = "" Then
                 MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
             Else
-                sql = "SELECT * FROM tblogin WHERE login = '" & txtLogin.Text & "' AND senha = '" & txtSenha.Text & "'"
+                sql = "SELECT * FROM tbfuncionarios WHERE login = '" & txtLogin.Text & "' AND senha = '" & txtSenha.Text & "'"
                 rs = db.Execute(sql)
 
                 If rs.EOF = False Then

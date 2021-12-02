@@ -43,12 +43,16 @@
                 txtUF.Text = "" Or
                 txtTelefone.Text = "" Or
                 txtCelular.Text = "" Or
+                cmbFuncao.Text = "" Or
+                txtSenhaFunc.Text = "" Or
+                txtLoginFunc.Text = "" Or
                 txtEmail.Text = "" Then
                 MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
                 Exit Sub
             Else
-                sql = "insert into tbCadastro values('" & txtCPF.Text & "', " &
+                sql = "insert into tbfuncionarios values('" & txtCPF.Text & "', " &
                                                  "'" & txtDataNasc.Text & "', " &
+                                                 "'" & cmbFuncao.Text & "', " &
                                                  "'" & txtNome.Text & "', " &
                                                  "'" & txtCEP.Text & "', " &
                                                  "'" & txtEndereco.Text & "', " &
@@ -58,8 +62,10 @@
                                                  "'" & txtUF.Text & "', " &
                                                  "'" & txtTelefone.Text & "', " &
                                                  "'" & txtCelular.Text & "', " &
-                                                 "'" & txtEmail.Text & "')"
-                rs = db.Execute(UCase(sql))
+                                                 "'" & txtEmail.Text & "', " &
+                                                 "'" & txtLoginFunc.Text & "', " &
+                                                 "'" & txtSenhaFunc.Text & "')"
+                rs = db.Execute(sql)
                 MsgBox("Dados Gravados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
                 limparCadastro()
             End If
@@ -70,20 +76,23 @@
 
     Private Sub btnPesquisar_Click(sender As Object, e As EventArgs) Handles btnPesquisar.Click
         Try
-            sql = "select * from tbCadastro where cpf='" & txtCPF.Text & "'"
+            sql = "select * from tbfuncionarios where cpf='" & txtCPF.Text & "'"
             rs = db.Execute(sql)
             If rs.EOF = False Then
                 txtDataNasc.Text = rs.Fields(1).Value
-                txtNome.Text = rs.Fields(2).Value
-                txtCEP.Text = rs.Fields(3).Value
-                txtEndereco.Text = rs.Fields(4).Value
-                txtComplemento.Text = rs.Fields(5).Value
-                txtBairro.Text = rs.Fields(6).Value
-                txtCidade.Text = rs.Fields(7).Value
-                txtUF.Text = rs.Fields(8).Value
-                txtTelefone.Text = rs.Fields(9).Value
-                txtCelular.Text = rs.Fields(10).Value
-                txtEmail.Text = rs.Fields(11).Value
+                cmbFuncao.Text = rs.Fields(2).Value
+                txtNome.Text = rs.Fields(3).Value
+                txtCEP.Text = rs.Fields(4).Value
+                txtEndereco.Text = rs.Fields(5).Value
+                txtComplemento.Text = rs.Fields(6).Value
+                txtBairro.Text = rs.Fields(7).Value
+                txtCidade.Text = rs.Fields(8).Value
+                txtUF.Text = rs.Fields(9).Value
+                txtTelefone.Text = rs.Fields(10).Value
+                txtCelular.Text = rs.Fields(11).Value
+                txtEmail.Text = rs.Fields(12).Value
+                txtLoginFunc.Text = rs.Fields(13).Value
+                txtSenhaFunc.Text = rs.Fields(14).Value
             Else
                 MsgBox("CPF Não Localizado", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
             End If
@@ -101,8 +110,8 @@
             End If
             resp = MsgBox("Deseja Realmente Excluir o Registro" + vbCrLf + "CPF: " & txtCPF.Text & "?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Atenção")
             If resp = MsgBoxResult.Yes Then
-                sql = "delete * from tbCadastro where cpf='" & txtCPF.Text & "'"
-                rs = db.Execute(UCase(sql))
+                sql = "delete * from tbfuncionarios where cpf='" & txtCPF.Text & "'"
+                rs = db.Execute(sql)
             ElseIf MsgBoxResult.No Then
                 Exit Sub
             Else
@@ -144,11 +153,13 @@
                 txtUF.Text = "" Or
                 txtTelefone.Text = "" Or
                 txtCelular.Text = "" Or
-                txtEmail.Text = "" Then
+                txtEmail.Text = "" Or
+                txtLoginFunc.Text = "" Or
+                txtSenhaFunc.Text = "" Then
                 MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
                 Exit Sub
             Else
-                sql = "update tbCadastro set  cpf = '" & txtCPF.Text & "', " &
+                sql = "update tbfuncionarios set  cpf = '" & txtCPF.Text & "', " &
                                                  "dataNasc = '" & txtDataNasc.Text & "', " &
                                                  "nome = '" & txtNome.Text & "', " &
                                                  "cep = '" & txtCEP.Text & "', " &
@@ -159,113 +170,15 @@
                                                  "uf = '" & txtUF.Text & "', " &
                                                  "telefone = '" & txtTelefone.Text & "', " &
                                                  "celular = '" & txtCelular.Text & "', " &
-                                                 "email = '" & txtEmail.Text & "'"
-                rs = db.Execute(UCase(sql))
+                                                 "email = '" & txtEmail.Text & "', " &
+                                                 "login = '" & txtLoginFunc.Text & "', " &
+                                                 "senha = '" & txtSenhaFunc.Text & "'"
+                rs = db.Execute(sql)
                 MsgBox("Dados Atualizados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
                 limparCadastro()
             End If
         Catch ex As Exception
             MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
-        End Try
-    End Sub
-
-    Private Sub btnCadastrarLogin_Click(sender As Object, e As EventArgs) Handles btnCadastrarLogin.Click
-        Try
-            If txtCadastrarLogin.Text = "" Or
-                txtCadastrarEmail.Text = "" Or
-                txtCadastrarSenha.Text = "" Then
-                MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
-                Exit Sub
-            Else
-                sql = "SELECT * FROM tblogin WHERE login = '" & txtCadastrarLogin.Text & "'"
-                rs = db.Execute(sql)
-
-                If rs.EOF = False Then
-                    MsgBox("Login Já Existente, Escolha Outro!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
-                    limparLogin()
-                    Exit Sub
-                End If
-                sql = "insert into tblogin values('" & txtCadastrarLogin.Text & "', " &
-                                                 "'" & txtCadastrarEmail.Text & "', " &
-                                                 "'" & txtCadastrarSenha.Text & "')"
-                    rs = db.Execute(sql)
-                    MsgBox("Dados Gravados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
-                    limparLogin()
-                End If
-        Catch ex As Exception
-            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
-        End Try
-    End Sub
-
-    Private Sub chkMostrarSenha_CheckedChanged(sender As Object, e As EventArgs) Handles chkMostrarSenha.CheckedChanged
-        Try
-            If txtCadastrarSenha.PasswordChar = "•" Then
-                txtCadastrarSenha.PasswordChar = ""
-            Else
-                txtCadastrarSenha.PasswordChar = "•"
-            End If
-        Catch ex As Exception
-            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
-        End Try
-    End Sub
-
-    Private Sub btnDeletarLogin_Click(sender As Object, e As EventArgs) Handles btnDeletarLogin.Click
-        Try
-            If txtCadastrarLogin.Text = "" Then
-                MsgBox("Preencha o Campo do Login.", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
-                txtCadastrarLogin.Focus()
-                Exit Sub
-            End If
-            resp = MsgBox("Deseja Realmente Excluir o Registro" + vbCrLf + "Login: " & txtCadastrarLogin.Text & "?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Atenção")
-            If resp = MsgBoxResult.Yes Then
-                sql = "delete * from tblogin where login='" & txtCadastrarLogin.Text & "'"
-                rs = db.Execute(sql)
-            ElseIf MsgBoxResult.No Then
-                Exit Sub
-            Else
-                MsgBox("Login Não Localizado", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
-            End If
-        Catch ex As Exception
-            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
-        End Try
-    End Sub
-
-    Private Sub btnPesquisarLogin_Click(sender As Object, e As EventArgs) Handles btnPesquisarLogin.Click
-        Try
-            If txtCadastrarLogin.Text = "" Then
-                MsgBox("Preencha o Campo de Login!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
-                Exit Sub
-            End If
-            sql = "select * from tblogin where login='" & txtCadastrarLogin.Text & "'"
-            rs = db.Execute(sql)
-            If rs.EOF = False Then
-                txtCadastrarEmail.Text = rs.Fields(1).Value
-                txtCadastrarSenha.Text = rs.Fields(2).Value
-            Else
-                MsgBox("Login não localizado", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
-            End If
-        Catch ex As Exception
-            MsgBox("Erro" & ex.Message(), MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
-        End Try
-    End Sub
-
-    Private Sub btnAtualizarLogin_Click(sender As Object, e As EventArgs) Handles btnAtualizarLogin.Click
-        Try
-            If txtCadastrarLogin.Text = "" Or
-                txtCadastrarEmail.Text = "" Or
-                txtCadastrarSenha.Text = "" Then
-                MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
-                Exit Sub
-            Else
-                sql = "update tblogin set login = '" & txtCadastrarLogin.Text & "', " &
-                                                   "email = '" & txtCadastrarEmail.Text & "', " &
-                                                   "senha = '" & txtCadastrarSenha.Text & "'"
-                rs = db.Execute(sql)
-                MsgBox("Dados Atualizados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
-                limparLogin()
-            End If
-        Catch ex As Exception
-            MsgBox("Erro" & ex.Message(), MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
 
@@ -291,12 +204,12 @@
         Try
             If cmbProdutos.Text = "" Or
                 nmrQuantidade.Value = 0 Or
-                txtNomeCliente.Text = "" Or
+                txtNomePedido.Text = "" Or
                 txtDataPedido.Text = "" Then
                 MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
                 Exit Sub
             End If
-            sql = "insert into tbpedidos values('" & txtNomeCliente.Text & "', " &
+            sql = "insert into tbpedidos values('" & txtNomePedido.Text & "', " &
                                                  "'" & txtDataPedido.Text & "', " &
                                                  "'" & cmbProdutos.Text & "', " &
                                                  "'" & nmrQuantidade.Value & "', " &
@@ -306,6 +219,157 @@
             MsgBox("Dados Gravados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
         Catch ex As Exception
             MsgBox("Erro" & ex.Message(), MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+        End Try
+    End Sub
+
+    Private Sub chkMostrar_CheckedChanged(sender As Object, e As EventArgs) Handles chkMostrar.CheckedChanged
+        Try
+            If txtSenhaFunc.PasswordChar = "•" Then
+                txtSenhaFunc.PasswordChar = ""
+            Else
+                txtSenhaFunc.PasswordChar = "•"
+            End If
+        Catch ex As Exception
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+        End Try
+    End Sub
+
+    Private Sub btnCadastrarCliente_Click(sender As Object, e As EventArgs) Handles btnCadastrarCliente.Click
+        Try
+            If txtCPFCliente.Text = "" Or
+                txtDataNascCliente.Text = "" Or
+                txtCliente.Text = "" Or
+                txtCEPCliente.Text = "" Or
+                txtEnderecoCliente.Text = "" Or
+                txtComplementoCliente.Text = "" Or
+                txtBairroCliente.Text = "" Or
+                txtCidadeCliente.Text = "" Or
+                txtUFCliente.Text = "" Or
+                txtTelefoneCliente.Text = "" Or
+                txtCelularCliente.Text = "" Or
+                txtEmailCliente.Text = "" Then
+                MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
+                Exit Sub
+            Else
+                sql = "insert into tbclientes values('" & txtCPFCliente.Text & "', " &
+                                                 "'" & txtDataNascCliente.Text & "', " &
+                                                 "'" & txtCliente.Text & "', " &
+                                                 "'" & txtCEPCliente.Text & "', " &
+                                                 "'" & txtEnderecoCliente.Text & "', " &
+                                                 "'" & txtComplementoCliente.Text & "', " &
+                                                 "'" & txtBairroCliente.Text & "', " &
+                                                 "'" & txtCidadeCliente.Text & "', " &
+                                                 "'" & txtUFCliente.Text & "', " &
+                                                 "'" & txtTelefoneCliente.Text & "', " &
+                                                 "'" & txtCelularCliente.Text & "', " &
+                                                 "'" & txtEmailCliente.Text & "')"
+                rs = db.Execute(sql)
+                MsgBox("Dados Gravados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
+                limparClientes()
+            End If
+        Catch ex As Exception
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+        End Try
+    End Sub
+
+    Private Sub txtCEPCliente_LostFocus(sender As Object, e As EventArgs) Handles txtCEPCliente.LostFocus
+        Try
+            sql = "select * from tb_cep where cep='" & txtCEP.Text & "'"
+            rs = db.Execute(sql)
+            If rs.EOF = False Then
+                txtEnderecoCliente.Text = rs.Fields(1).Value
+                txtCidadeCliente.Text = rs.Fields(2).Value
+                txtBairroCliente.Text = rs.Fields(3).Value
+                txtUFCliente.Text = rs.Fields(4).Value
+                txtComplementoCliente.Focus()
+            Else
+                MsgBox("CEP Não Localizado", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            End If
+        Catch ex As Exception
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+        End Try
+    End Sub
+
+    Private Sub btnDeletarCliente_Click(sender As Object, e As EventArgs) Handles btnDeletarCliente.Click
+        Try
+            If txtCPFCliente.Text = "" Then
+                MsgBox("Preencha o Campo do CPF.", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
+                txtCPFCliente.Focus()
+                Exit Sub
+            End If
+            resp = MsgBox("Deseja Realmente Excluir o Registro" + vbCrLf + "CPF: " & txtCPFCliente.Text & "?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Atenção")
+            If resp = MsgBoxResult.Yes Then
+                sql = "delete * from tbclientes where cpf='" & txtCPFCliente.Text & "'"
+                rs = db.Execute(sql)
+            ElseIf MsgBoxResult.No Then
+                Exit Sub
+            Else
+                MsgBox("CPF Não Localizado", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            End If
+        Catch ex As Exception
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+        End Try
+    End Sub
+
+    Private Sub btnPesquisarCliente_Click(sender As Object, e As EventArgs) Handles btnPesquisarCliente.Click
+        Try
+            sql = "select * from tbclientes where cpf='" & txtCPFCliente.Text & "'"
+            rs = db.Execute(sql)
+            If rs.EOF = False Then
+                txtDataNascCliente.Text = rs.Fields(1).Value
+                txtCliente.Text = rs.Fields(2).Value
+                txtCEPCliente.Text = rs.Fields(3).Value
+                txtEnderecoCliente.Text = rs.Fields(4).Value
+                txtComplementoCliente.Text = rs.Fields(5).Value
+                txtBairroCliente.Text = rs.Fields(6).Value
+                txtCidadeCliente.Text = rs.Fields(7).Value
+                txtUFCliente.Text = rs.Fields(8).Value
+                txtTelefoneCliente.Text = rs.Fields(9).Value
+                txtCelularCliente.Text = rs.Fields(10).Value
+                txtEmailCliente.Text = rs.Fields(11).Value
+            Else
+                MsgBox("CPF Não Localizado", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            End If
+        Catch ex As Exception
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+        End Try
+    End Sub
+
+    Private Sub btnAtualizarCliente_Click(sender As Object, e As EventArgs) Handles btnAtualizarCliente.Click
+        Try
+            If txtCPFCliente.Text = "" Or
+                txtDataNascCliente.Text = "" Or
+                txtCliente.Text = "" Or
+                txtCEPCliente.Text = "" Or
+                txtEnderecoCliente.Text = "" Or
+                txtComplementoCliente.Text = "" Or
+                txtBairroCliente.Text = "" Or
+                txtCidadeCliente.Text = "" Or
+                txtUFCliente.Text = "" Or
+                txtTelefoneCliente.Text = "" Or
+                txtCelularCliente.Text = "" Or
+                txtEmailCliente.Text = "" Then
+                MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
+                Exit Sub
+            Else
+                sql = "update tbclientes set  cpf = '" & txtCPFCliente.Text & "', " &
+                                                 "dataNasc = '" & txtDataNascCliente.Text & "', " &
+                                                 "cliente = '" & txtCliente.Text & "', " &
+                                                 "cep = '" & txtCEPCliente.Text & "', " &
+                                                 "endereco = '" & txtEnderecoCliente.Text & "', " &
+                                                 "comp = '" & txtComplementoCliente.Text & "', " &
+                                                 "bairro = '" & txtBairroCliente.Text & "', " &
+                                                 "cidade = '" & txtCidadeCliente.Text & "', " &
+                                                 "uf = '" & txtUFCliente.Text & "', " &
+                                                 "telefone = '" & txtTelefoneCliente.Text & "', " &
+                                                 "celular = '" & txtCelularCliente.Text & "', " &
+                                                 "email = '" & txtEmailCliente.Text & "'"
+                rs = db.Execute(sql)
+                MsgBox("Dados Atualizados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
+                limparCadastro()
+            End If
+        Catch ex As Exception
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
 End Class

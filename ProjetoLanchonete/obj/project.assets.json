@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pedro\\Desktop\\ProjetoLanchonete\\ProjetoLanchonete\\ProjetoLanchonete.vbproj",
+      "projectUniqueName": "C:\\Dev\\ProjetoLanchonete\\ProjetoLanchonete\\ProjetoLanchonete.vbproj",
       "projectName": "ProjetoLanchonete",
-      "projectPath": "C:\\Users\\pedro\\Desktop\\ProjetoLanchonete\\ProjetoLanchonete\\ProjetoLanchonete.vbproj",
+      "projectPath": "C:\\Dev\\ProjetoLanchonete\\ProjetoLanchonete\\ProjetoLanchonete.vbproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pedro\\Desktop\\ProjetoLanchonete\\ProjetoLanchonete\\obj\\",
+      "outputPath": "C:\\Dev\\ProjetoLanchonete\\ProjetoLanchonete\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",

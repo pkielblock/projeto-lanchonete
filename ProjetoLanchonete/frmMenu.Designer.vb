@@ -30,6 +30,13 @@ Partial Class frmMenu
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnSair = New System.Windows.Forms.Button()
         Me.tbCadastro = New System.Windows.Forms.TabPage()
+        Me.lblFuncao = New System.Windows.Forms.Label()
+        Me.cmbFuncao = New System.Windows.Forms.ComboBox()
+        Me.chkMostrar = New System.Windows.Forms.CheckBox()
+        Me.txtSenhaFunc = New System.Windows.Forms.TextBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.txtLoginFunc = New System.Windows.Forms.TextBox()
+        Me.Label30 = New System.Windows.Forms.Label()
         Me.btnPesquisar = New System.Windows.Forms.Button()
         Me.btnAtualizar = New System.Windows.Forms.Button()
         Me.lblTelefone = New System.Windows.Forms.Label()
@@ -60,22 +67,39 @@ Partial Class frmMenu
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtCPF = New System.Windows.Forms.MaskedTextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.tbLogin = New System.Windows.Forms.TabPage()
-        Me.btnPesquisarLogin = New System.Windows.Forms.Button()
-        Me.btnAtualizarLogin = New System.Windows.Forms.Button()
-        Me.btnDeletarLogin = New System.Windows.Forms.Button()
-        Me.chkMostrarSenha = New System.Windows.Forms.CheckBox()
-        Me.btnCadastrarLogin = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.txtCadastrarSenha = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtCadastrarEmail = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtCadastrarLogin = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.tbClientes = New System.Windows.Forms.TabPage()
+        Me.btnPesquisarCliente = New System.Windows.Forms.Button()
+        Me.btnAtualizarCliente = New System.Windows.Forms.Button()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.btnDeletarCliente = New System.Windows.Forms.Button()
+        Me.btnCadastrarCliente = New System.Windows.Forms.Button()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtEmailCliente = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.txtCelularCliente = New System.Windows.Forms.MaskedTextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.txtTelefoneCliente = New System.Windows.Forms.MaskedTextBox()
+        Me.txtUFCliente = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.txtCidadeCliente = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.txtBairroCliente = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.txtComplementoCliente = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.txtEnderecoCliente = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.txtCEPCliente = New System.Windows.Forms.MaskedTextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.txtCliente = New System.Windows.Forms.TextBox()
+        Me.txtDataNascCliente = New System.Windows.Forms.DateTimePicker()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.txtCPFCliente = New System.Windows.Forms.MaskedTextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
         Me.tbRegistrarPedido = New System.Windows.Forms.TabPage()
-        Me.txtNomeCliente = New System.Windows.Forms.TextBox()
+        Me.txtNomePedido = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtDataPedido = New System.Windows.Forms.DateTimePicker()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -95,30 +119,37 @@ Partial Class frmMenu
         Me.produto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.qtdProduto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.precoPedido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tbTotalVendas = New System.Windows.Forms.TabPage()
+        Me.dgvTotal = New System.Windows.Forms.DataGridView()
+        Me.qtdVendas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.valorTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tbControle.SuspendLayout()
         Me.tbInicio.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbCadastro.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tbLogin.SuspendLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tbClientes.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbRegistrarPedido.SuspendLayout()
         CType(Me.nmrQuantidade, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbVisualizarPedidos.SuspendLayout()
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tbTotalVendas.SuspendLayout()
+        CType(Me.dgvTotal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tbControle
         '
         Me.tbControle.Controls.Add(Me.tbInicio)
         Me.tbControle.Controls.Add(Me.tbCadastro)
-        Me.tbControle.Controls.Add(Me.tbLogin)
+        Me.tbControle.Controls.Add(Me.tbClientes)
         Me.tbControle.Controls.Add(Me.tbRegistrarPedido)
         Me.tbControle.Controls.Add(Me.tbVisualizarPedidos)
-        Me.tbControle.Location = New System.Drawing.Point(1, 1)
+        Me.tbControle.Controls.Add(Me.tbTotalVendas)
+        Me.tbControle.Location = New System.Drawing.Point(1, 0)
         Me.tbControle.Name = "tbControle"
         Me.tbControle.SelectedIndex = 0
-        Me.tbControle.Size = New System.Drawing.Size(588, 424)
+        Me.tbControle.Size = New System.Drawing.Size(588, 427)
         Me.tbControle.TabIndex = 0
         '
         'tbInicio
@@ -131,7 +162,7 @@ Partial Class frmMenu
         Me.tbInicio.Location = New System.Drawing.Point(4, 24)
         Me.tbInicio.Name = "tbInicio"
         Me.tbInicio.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbInicio.Size = New System.Drawing.Size(580, 396)
+        Me.tbInicio.Size = New System.Drawing.Size(580, 399)
         Me.tbInicio.TabIndex = 0
         Me.tbInicio.Text = "Inicio"
         Me.tbInicio.ToolTipText = "Inicio"
@@ -182,6 +213,13 @@ Partial Class frmMenu
         'tbCadastro
         '
         Me.tbCadastro.BackColor = System.Drawing.Color.SkyBlue
+        Me.tbCadastro.Controls.Add(Me.lblFuncao)
+        Me.tbCadastro.Controls.Add(Me.cmbFuncao)
+        Me.tbCadastro.Controls.Add(Me.chkMostrar)
+        Me.tbCadastro.Controls.Add(Me.txtSenhaFunc)
+        Me.tbCadastro.Controls.Add(Me.Label28)
+        Me.tbCadastro.Controls.Add(Me.txtLoginFunc)
+        Me.tbCadastro.Controls.Add(Me.Label30)
         Me.tbCadastro.Controls.Add(Me.btnPesquisar)
         Me.tbCadastro.Controls.Add(Me.btnAtualizar)
         Me.tbCadastro.Controls.Add(Me.lblTelefone)
@@ -215,15 +253,76 @@ Partial Class frmMenu
         Me.tbCadastro.Location = New System.Drawing.Point(4, 24)
         Me.tbCadastro.Name = "tbCadastro"
         Me.tbCadastro.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbCadastro.Size = New System.Drawing.Size(580, 396)
+        Me.tbCadastro.Size = New System.Drawing.Size(580, 399)
         Me.tbCadastro.TabIndex = 1
-        Me.tbCadastro.Text = "Cadastro"
+        Me.tbCadastro.Text = "Funcionários"
         Me.tbCadastro.ToolTipText = "Cadastro de Funcionarios"
+        '
+        'lblFuncao
+        '
+        Me.lblFuncao.AutoSize = True
+        Me.lblFuncao.Location = New System.Drawing.Point(320, 45)
+        Me.lblFuncao.Name = "lblFuncao"
+        Me.lblFuncao.Size = New System.Drawing.Size(52, 15)
+        Me.lblFuncao.TabIndex = 60
+        Me.lblFuncao.Text = "Função: "
+        '
+        'cmbFuncao
+        '
+        Me.cmbFuncao.FormattingEnabled = True
+        Me.cmbFuncao.Items.AddRange(New Object() {"Dono", "Atendente", "Cozinheiro"})
+        Me.cmbFuncao.Location = New System.Drawing.Point(320, 63)
+        Me.cmbFuncao.Name = "cmbFuncao"
+        Me.cmbFuncao.Size = New System.Drawing.Size(160, 23)
+        Me.cmbFuncao.TabIndex = 59
+        '
+        'chkMostrar
+        '
+        Me.chkMostrar.AutoSize = True
+        Me.chkMostrar.Location = New System.Drawing.Point(456, 304)
+        Me.chkMostrar.Name = "chkMostrar"
+        Me.chkMostrar.Size = New System.Drawing.Size(102, 19)
+        Me.chkMostrar.TabIndex = 58
+        Me.chkMostrar.Text = "Mostrar Senha"
+        Me.chkMostrar.UseVisualStyleBackColor = True
+        '
+        'txtSenhaFunc
+        '
+        Me.txtSenhaFunc.Location = New System.Drawing.Point(252, 302)
+        Me.txtSenhaFunc.Name = "txtSenhaFunc"
+        Me.txtSenhaFunc.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtSenhaFunc.Size = New System.Drawing.Size(198, 23)
+        Me.txtSenhaFunc.TabIndex = 57
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(252, 284)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(45, 15)
+        Me.Label28.TabIndex = 56
+        Me.Label28.Text = "Senha: "
+        '
+        'txtLoginFunc
+        '
+        Me.txtLoginFunc.Location = New System.Drawing.Point(21, 302)
+        Me.txtLoginFunc.Name = "txtLoginFunc"
+        Me.txtLoginFunc.Size = New System.Drawing.Size(210, 23)
+        Me.txtLoginFunc.TabIndex = 53
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(20, 282)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(43, 15)
+        Me.Label30.TabIndex = 52
+        Me.Label30.Text = "Login: "
         '
         'btnPesquisar
         '
         Me.btnPesquisar.Image = CType(resources.GetObject("btnPesquisar.Image"), System.Drawing.Image)
-        Me.btnPesquisar.Location = New System.Drawing.Point(314, 338)
+        Me.btnPesquisar.Location = New System.Drawing.Point(318, 349)
         Me.btnPesquisar.Name = "btnPesquisar"
         Me.btnPesquisar.Size = New System.Drawing.Size(104, 40)
         Me.btnPesquisar.TabIndex = 51
@@ -235,7 +334,7 @@ Partial Class frmMenu
         'btnAtualizar
         '
         Me.btnAtualizar.Image = CType(resources.GetObject("btnAtualizar.Image"), System.Drawing.Image)
-        Me.btnAtualizar.Location = New System.Drawing.Point(454, 338)
+        Me.btnAtualizar.Location = New System.Drawing.Point(454, 349)
         Me.btnAtualizar.Name = "btnAtualizar"
         Me.btnAtualizar.Size = New System.Drawing.Size(104, 40)
         Me.btnAtualizar.TabIndex = 50
@@ -247,7 +346,7 @@ Partial Class frmMenu
         'lblTelefone
         '
         Me.lblTelefone.AutoSize = True
-        Me.lblTelefone.Location = New System.Drawing.Point(71, 276)
+        Me.lblTelefone.Location = New System.Drawing.Point(71, 232)
         Me.lblTelefone.Name = "lblTelefone"
         Me.lblTelefone.Size = New System.Drawing.Size(54, 15)
         Me.lblTelefone.TabIndex = 49
@@ -257,7 +356,7 @@ Partial Class frmMenu
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(87, 22)
+        Me.Label4.Location = New System.Drawing.Point(97, 6)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(283, 32)
         Me.Label4.TabIndex = 48
@@ -266,9 +365,9 @@ Partial Class frmMenu
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(439, 22)
+        Me.PictureBox2.Location = New System.Drawing.Point(496, 10)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(119, 108)
+        Me.PictureBox2.Size = New System.Drawing.Size(84, 76)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 47
         Me.PictureBox2.TabStop = False
@@ -276,7 +375,7 @@ Partial Class frmMenu
         'btnDeletar
         '
         Me.btnDeletar.Image = CType(resources.GetObject("btnDeletar.Image"), System.Drawing.Image)
-        Me.btnDeletar.Location = New System.Drawing.Point(171, 338)
+        Me.btnDeletar.Location = New System.Drawing.Point(171, 349)
         Me.btnDeletar.Name = "btnDeletar"
         Me.btnDeletar.Size = New System.Drawing.Size(104, 40)
         Me.btnDeletar.TabIndex = 46
@@ -288,7 +387,7 @@ Partial Class frmMenu
         'btnCadastar
         '
         Me.btnCadastar.Image = CType(resources.GetObject("btnCadastar.Image"), System.Drawing.Image)
-        Me.btnCadastar.Location = New System.Drawing.Point(21, 338)
+        Me.btnCadastar.Location = New System.Drawing.Point(21, 349)
         Me.btnCadastar.Name = "btnCadastar"
         Me.btnCadastar.Size = New System.Drawing.Size(104, 40)
         Me.btnCadastar.TabIndex = 45
@@ -300,7 +399,7 @@ Partial Class frmMenu
         'lblNome
         '
         Me.lblNome.AutoSize = True
-        Me.lblNome.Location = New System.Drawing.Point(19, 136)
+        Me.lblNome.Location = New System.Drawing.Point(19, 92)
         Me.lblNome.Name = "lblNome"
         Me.lblNome.Size = New System.Drawing.Size(43, 15)
         Me.lblNome.TabIndex = 44
@@ -308,15 +407,15 @@ Partial Class frmMenu
         '
         'txtEmail
         '
-        Me.txtEmail.Location = New System.Drawing.Point(271, 294)
+        Me.txtEmail.Location = New System.Drawing.Point(288, 250)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(287, 23)
+        Me.txtEmail.Size = New System.Drawing.Size(270, 23)
         Me.txtEmail.TabIndex = 37
         '
         'lblEmail
         '
         Me.lblEmail.AutoSize = True
-        Me.lblEmail.Location = New System.Drawing.Point(271, 276)
+        Me.lblEmail.Location = New System.Drawing.Point(288, 232)
         Me.lblEmail.Name = "lblEmail"
         Me.lblEmail.Size = New System.Drawing.Size(39, 15)
         Me.lblEmail.TabIndex = 43
@@ -324,17 +423,17 @@ Partial Class frmMenu
         '
         'txtCelular
         '
-        Me.txtCelular.Location = New System.Drawing.Point(171, 294)
+        Me.txtCelular.Location = New System.Drawing.Point(171, 250)
         Me.txtCelular.Mask = "(99) 99999-9999"
         Me.txtCelular.Name = "txtCelular"
-        Me.txtCelular.Size = New System.Drawing.Size(94, 23)
+        Me.txtCelular.Size = New System.Drawing.Size(104, 23)
         Me.txtCelular.TabIndex = 36
         Me.txtCelular.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblCelular
         '
         Me.lblCelular.AutoSize = True
-        Me.lblCelular.Location = New System.Drawing.Point(171, 276)
+        Me.lblCelular.Location = New System.Drawing.Point(171, 232)
         Me.lblCelular.Name = "lblCelular"
         Me.lblCelular.Size = New System.Drawing.Size(47, 15)
         Me.lblCelular.TabIndex = 42
@@ -342,7 +441,7 @@ Partial Class frmMenu
         '
         'txtTelefone
         '
-        Me.txtTelefone.Location = New System.Drawing.Point(71, 294)
+        Me.txtTelefone.Location = New System.Drawing.Point(71, 250)
         Me.txtTelefone.Mask = "(99) 9999-9999"
         Me.txtTelefone.Name = "txtTelefone"
         Me.txtTelefone.Size = New System.Drawing.Size(94, 23)
@@ -351,7 +450,7 @@ Partial Class frmMenu
         '
         'txtUF
         '
-        Me.txtUF.Location = New System.Drawing.Point(21, 294)
+        Me.txtUF.Location = New System.Drawing.Point(21, 250)
         Me.txtUF.Name = "txtUF"
         Me.txtUF.Size = New System.Drawing.Size(45, 23)
         Me.txtUF.TabIndex = 32
@@ -359,7 +458,7 @@ Partial Class frmMenu
         'lblUF
         '
         Me.lblUF.AutoSize = True
-        Me.lblUF.Location = New System.Drawing.Point(21, 276)
+        Me.lblUF.Location = New System.Drawing.Point(21, 232)
         Me.lblUF.Name = "lblUF"
         Me.lblUF.Size = New System.Drawing.Size(24, 15)
         Me.lblUF.TabIndex = 41
@@ -367,7 +466,7 @@ Partial Class frmMenu
         '
         'txtCidade
         '
-        Me.txtCidade.Location = New System.Drawing.Point(333, 243)
+        Me.txtCidade.Location = New System.Drawing.Point(333, 199)
         Me.txtCidade.Name = "txtCidade"
         Me.txtCidade.Size = New System.Drawing.Size(225, 23)
         Me.txtCidade.TabIndex = 31
@@ -375,7 +474,7 @@ Partial Class frmMenu
         'lblCidade
         '
         Me.lblCidade.AutoSize = True
-        Me.lblCidade.Location = New System.Drawing.Point(333, 225)
+        Me.lblCidade.Location = New System.Drawing.Point(333, 181)
         Me.lblCidade.Name = "lblCidade"
         Me.lblCidade.Size = New System.Drawing.Size(47, 15)
         Me.lblCidade.TabIndex = 40
@@ -383,7 +482,7 @@ Partial Class frmMenu
         '
         'txtBairro
         '
-        Me.txtBairro.Location = New System.Drawing.Point(171, 243)
+        Me.txtBairro.Location = New System.Drawing.Point(171, 199)
         Me.txtBairro.Name = "txtBairro"
         Me.txtBairro.Size = New System.Drawing.Size(156, 23)
         Me.txtBairro.TabIndex = 30
@@ -391,7 +490,7 @@ Partial Class frmMenu
         'lblBairro
         '
         Me.lblBairro.AutoSize = True
-        Me.lblBairro.Location = New System.Drawing.Point(171, 225)
+        Me.lblBairro.Location = New System.Drawing.Point(171, 181)
         Me.lblBairro.Name = "lblBairro"
         Me.lblBairro.Size = New System.Drawing.Size(41, 15)
         Me.lblBairro.TabIndex = 39
@@ -399,7 +498,7 @@ Partial Class frmMenu
         '
         'txtComplemento
         '
-        Me.txtComplemento.Location = New System.Drawing.Point(19, 243)
+        Me.txtComplemento.Location = New System.Drawing.Point(19, 199)
         Me.txtComplemento.Name = "txtComplemento"
         Me.txtComplemento.Size = New System.Drawing.Size(144, 23)
         Me.txtComplemento.TabIndex = 28
@@ -407,7 +506,7 @@ Partial Class frmMenu
         'lblComplemento
         '
         Me.lblComplemento.AutoSize = True
-        Me.lblComplemento.Location = New System.Drawing.Point(19, 225)
+        Me.lblComplemento.Location = New System.Drawing.Point(19, 181)
         Me.lblComplemento.Name = "lblComplemento"
         Me.lblComplemento.Size = New System.Drawing.Size(87, 15)
         Me.lblComplemento.TabIndex = 38
@@ -415,7 +514,7 @@ Partial Class frmMenu
         '
         'txtEndereco
         '
-        Me.txtEndereco.Location = New System.Drawing.Point(117, 199)
+        Me.txtEndereco.Location = New System.Drawing.Point(117, 155)
         Me.txtEndereco.Name = "txtEndereco"
         Me.txtEndereco.Size = New System.Drawing.Size(441, 23)
         Me.txtEndereco.TabIndex = 27
@@ -423,7 +522,7 @@ Partial Class frmMenu
         'lblEndereco
         '
         Me.lblEndereco.AutoSize = True
-        Me.lblEndereco.Location = New System.Drawing.Point(117, 181)
+        Me.lblEndereco.Location = New System.Drawing.Point(117, 137)
         Me.lblEndereco.Name = "lblEndereco"
         Me.lblEndereco.Size = New System.Drawing.Size(59, 15)
         Me.lblEndereco.TabIndex = 35
@@ -431,7 +530,7 @@ Partial Class frmMenu
         '
         'txtCEP
         '
-        Me.txtCEP.Location = New System.Drawing.Point(19, 199)
+        Me.txtCEP.Location = New System.Drawing.Point(19, 155)
         Me.txtCEP.Mask = "99999-999"
         Me.txtCEP.Name = "txtCEP"
         Me.txtCEP.Size = New System.Drawing.Size(83, 23)
@@ -441,7 +540,7 @@ Partial Class frmMenu
         'lblCEP
         '
         Me.lblCEP.AutoSize = True
-        Me.lblCEP.Location = New System.Drawing.Point(19, 181)
+        Me.lblCEP.Location = New System.Drawing.Point(19, 137)
         Me.lblCEP.Name = "lblCEP"
         Me.lblCEP.Size = New System.Drawing.Size(31, 15)
         Me.lblCEP.TabIndex = 33
@@ -449,7 +548,7 @@ Partial Class frmMenu
         '
         'txtNome
         '
-        Me.txtNome.Location = New System.Drawing.Point(20, 154)
+        Me.txtNome.Location = New System.Drawing.Point(20, 110)
         Me.txtNome.Name = "txtNome"
         Me.txtNome.Size = New System.Drawing.Size(538, 23)
         Me.txtNome.TabIndex = 24
@@ -457,7 +556,7 @@ Partial Class frmMenu
         'txtDataNasc
         '
         Me.txtDataNasc.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.txtDataNasc.Location = New System.Drawing.Point(231, 107)
+        Me.txtDataNasc.Location = New System.Drawing.Point(171, 63)
         Me.txtDataNasc.Name = "txtDataNasc"
         Me.txtDataNasc.Size = New System.Drawing.Size(143, 23)
         Me.txtDataNasc.TabIndex = 29
@@ -466,7 +565,7 @@ Partial Class frmMenu
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(231, 89)
+        Me.Label3.Location = New System.Drawing.Point(171, 45)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(104, 15)
         Me.Label3.TabIndex = 26
@@ -474,7 +573,7 @@ Partial Class frmMenu
         '
         'txtCPF
         '
-        Me.txtCPF.Location = New System.Drawing.Point(20, 107)
+        Me.txtCPF.Location = New System.Drawing.Point(20, 63)
         Me.txtCPF.Mask = "999.999.999-99"
         Me.txtCPF.Name = "txtCPF"
         Me.txtCPF.Size = New System.Drawing.Size(145, 23)
@@ -484,167 +583,326 @@ Partial Class frmMenu
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(21, 89)
+        Me.Label2.Location = New System.Drawing.Point(21, 45)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(31, 15)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "CPF:"
         '
-        'tbLogin
+        'tbClientes
         '
-        Me.tbLogin.BackColor = System.Drawing.Color.SkyBlue
-        Me.tbLogin.Controls.Add(Me.btnPesquisarLogin)
-        Me.tbLogin.Controls.Add(Me.btnAtualizarLogin)
-        Me.tbLogin.Controls.Add(Me.btnDeletarLogin)
-        Me.tbLogin.Controls.Add(Me.chkMostrarSenha)
-        Me.tbLogin.Controls.Add(Me.btnCadastrarLogin)
-        Me.tbLogin.Controls.Add(Me.Label8)
-        Me.tbLogin.Controls.Add(Me.PictureBox3)
-        Me.tbLogin.Controls.Add(Me.txtCadastrarSenha)
-        Me.tbLogin.Controls.Add(Me.Label7)
-        Me.tbLogin.Controls.Add(Me.txtCadastrarEmail)
-        Me.tbLogin.Controls.Add(Me.Label6)
-        Me.tbLogin.Controls.Add(Me.txtCadastrarLogin)
-        Me.tbLogin.Controls.Add(Me.Label5)
-        Me.tbLogin.Location = New System.Drawing.Point(4, 24)
-        Me.tbLogin.Name = "tbLogin"
-        Me.tbLogin.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbLogin.Size = New System.Drawing.Size(580, 396)
-        Me.tbLogin.TabIndex = 2
-        Me.tbLogin.Text = "Login"
-        Me.tbLogin.ToolTipText = "Cadastro de Login"
+        Me.tbClientes.BackColor = System.Drawing.Color.SkyBlue
+        Me.tbClientes.Controls.Add(Me.btnPesquisarCliente)
+        Me.tbClientes.Controls.Add(Me.btnAtualizarCliente)
+        Me.tbClientes.Controls.Add(Me.Label15)
+        Me.tbClientes.Controls.Add(Me.Label16)
+        Me.tbClientes.Controls.Add(Me.PictureBox4)
+        Me.tbClientes.Controls.Add(Me.btnDeletarCliente)
+        Me.tbClientes.Controls.Add(Me.btnCadastrarCliente)
+        Me.tbClientes.Controls.Add(Me.Label17)
+        Me.tbClientes.Controls.Add(Me.txtEmailCliente)
+        Me.tbClientes.Controls.Add(Me.Label18)
+        Me.tbClientes.Controls.Add(Me.txtCelularCliente)
+        Me.tbClientes.Controls.Add(Me.Label19)
+        Me.tbClientes.Controls.Add(Me.txtTelefoneCliente)
+        Me.tbClientes.Controls.Add(Me.txtUFCliente)
+        Me.tbClientes.Controls.Add(Me.Label20)
+        Me.tbClientes.Controls.Add(Me.txtCidadeCliente)
+        Me.tbClientes.Controls.Add(Me.Label21)
+        Me.tbClientes.Controls.Add(Me.txtBairroCliente)
+        Me.tbClientes.Controls.Add(Me.Label22)
+        Me.tbClientes.Controls.Add(Me.txtComplementoCliente)
+        Me.tbClientes.Controls.Add(Me.Label23)
+        Me.tbClientes.Controls.Add(Me.txtEnderecoCliente)
+        Me.tbClientes.Controls.Add(Me.Label24)
+        Me.tbClientes.Controls.Add(Me.txtCEPCliente)
+        Me.tbClientes.Controls.Add(Me.Label25)
+        Me.tbClientes.Controls.Add(Me.txtCliente)
+        Me.tbClientes.Controls.Add(Me.txtDataNascCliente)
+        Me.tbClientes.Controls.Add(Me.Label26)
+        Me.tbClientes.Controls.Add(Me.txtCPFCliente)
+        Me.tbClientes.Controls.Add(Me.Label27)
+        Me.tbClientes.Location = New System.Drawing.Point(4, 24)
+        Me.tbClientes.Name = "tbClientes"
+        Me.tbClientes.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbClientes.Size = New System.Drawing.Size(580, 399)
+        Me.tbClientes.TabIndex = 5
+        Me.tbClientes.Text = "Clientes"
         '
-        'btnPesquisarLogin
+        'btnPesquisarCliente
         '
-        Me.btnPesquisarLogin.Image = CType(resources.GetObject("btnPesquisarLogin.Image"), System.Drawing.Image)
-        Me.btnPesquisarLogin.Location = New System.Drawing.Point(306, 315)
-        Me.btnPesquisarLogin.Name = "btnPesquisarLogin"
-        Me.btnPesquisarLogin.Size = New System.Drawing.Size(104, 40)
-        Me.btnPesquisarLogin.TabIndex = 54
-        Me.btnPesquisarLogin.Text = "Pesquisar"
-        Me.btnPesquisarLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnPesquisarLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.btnPesquisarLogin.UseVisualStyleBackColor = True
+        Me.btnPesquisarCliente.Image = CType(resources.GetObject("btnPesquisarCliente.Image"), System.Drawing.Image)
+        Me.btnPesquisarCliente.Location = New System.Drawing.Point(316, 336)
+        Me.btnPesquisarCliente.Name = "btnPesquisarCliente"
+        Me.btnPesquisarCliente.Size = New System.Drawing.Size(104, 40)
+        Me.btnPesquisarCliente.TabIndex = 81
+        Me.btnPesquisarCliente.Text = "Pesquisar"
+        Me.btnPesquisarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnPesquisarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.btnPesquisarCliente.UseVisualStyleBackColor = True
         '
-        'btnAtualizarLogin
+        'btnAtualizarCliente
         '
-        Me.btnAtualizarLogin.Image = CType(resources.GetObject("btnAtualizarLogin.Image"), System.Drawing.Image)
-        Me.btnAtualizarLogin.Location = New System.Drawing.Point(431, 315)
-        Me.btnAtualizarLogin.Name = "btnAtualizarLogin"
-        Me.btnAtualizarLogin.Size = New System.Drawing.Size(104, 40)
-        Me.btnAtualizarLogin.TabIndex = 53
-        Me.btnAtualizarLogin.Text = "Atualizar"
-        Me.btnAtualizarLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAtualizarLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.btnAtualizarLogin.UseVisualStyleBackColor = True
+        Me.btnAtualizarCliente.Image = CType(resources.GetObject("btnAtualizarCliente.Image"), System.Drawing.Image)
+        Me.btnAtualizarCliente.Location = New System.Drawing.Point(456, 336)
+        Me.btnAtualizarCliente.Name = "btnAtualizarCliente"
+        Me.btnAtualizarCliente.Size = New System.Drawing.Size(104, 40)
+        Me.btnAtualizarCliente.TabIndex = 80
+        Me.btnAtualizarCliente.Text = "Atualizar"
+        Me.btnAtualizarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAtualizarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.btnAtualizarCliente.UseVisualStyleBackColor = True
         '
-        'btnDeletarLogin
+        'Label15
         '
-        Me.btnDeletarLogin.Image = CType(resources.GetObject("btnDeletarLogin.Image"), System.Drawing.Image)
-        Me.btnDeletarLogin.Location = New System.Drawing.Point(181, 315)
-        Me.btnDeletarLogin.Name = "btnDeletarLogin"
-        Me.btnDeletarLogin.Size = New System.Drawing.Size(104, 40)
-        Me.btnDeletarLogin.TabIndex = 52
-        Me.btnDeletarLogin.Text = "Deletar"
-        Me.btnDeletarLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnDeletarLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.btnDeletarLogin.UseVisualStyleBackColor = True
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(73, 274)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(54, 15)
+        Me.Label15.TabIndex = 79
+        Me.Label15.Text = "Telefone:"
         '
-        'chkMostrarSenha
+        'Label16
         '
-        Me.chkMostrarSenha.AutoSize = True
-        Me.chkMostrarSenha.Location = New System.Drawing.Point(105, 272)
-        Me.chkMostrarSenha.Name = "chkMostrarSenha"
-        Me.chkMostrarSenha.Size = New System.Drawing.Size(102, 19)
-        Me.chkMostrarSenha.TabIndex = 51
-        Me.chkMostrarSenha.Text = "Mostrar Senha"
-        Me.chkMostrarSenha.UseVisualStyleBackColor = True
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label16.Location = New System.Drawing.Point(89, 20)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(233, 32)
+        Me.Label16.TabIndex = 78
+        Me.Label16.Text = "Cadastro de Clientes"
         '
-        'btnCadastrarLogin
+        'PictureBox4
         '
-        Me.btnCadastrarLogin.Image = CType(resources.GetObject("btnCadastrarLogin.Image"), System.Drawing.Image)
-        Me.btnCadastrarLogin.Location = New System.Drawing.Point(58, 315)
-        Me.btnCadastrarLogin.Name = "btnCadastrarLogin"
-        Me.btnCadastrarLogin.Size = New System.Drawing.Size(104, 40)
-        Me.btnCadastrarLogin.TabIndex = 50
-        Me.btnCadastrarLogin.Text = "Cadastrar"
-        Me.btnCadastrarLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCadastrarLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.btnCadastrarLogin.UseVisualStyleBackColor = True
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
+        Me.PictureBox4.Location = New System.Drawing.Point(441, 20)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(119, 108)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 77
+        Me.PictureBox4.TabStop = False
         '
-        'Label8
+        'btnDeletarCliente
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label8.Location = New System.Drawing.Point(58, 53)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(207, 32)
-        Me.Label8.TabIndex = 49
-        Me.Label8.Text = "Cadastro de Login"
+        Me.btnDeletarCliente.Image = CType(resources.GetObject("btnDeletarCliente.Image"), System.Drawing.Image)
+        Me.btnDeletarCliente.Location = New System.Drawing.Point(173, 336)
+        Me.btnDeletarCliente.Name = "btnDeletarCliente"
+        Me.btnDeletarCliente.Size = New System.Drawing.Size(104, 40)
+        Me.btnDeletarCliente.TabIndex = 76
+        Me.btnDeletarCliente.Text = "Deletar"
+        Me.btnDeletarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnDeletarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.btnDeletarCliente.UseVisualStyleBackColor = True
         '
-        'PictureBox3
+        'btnCadastrarCliente
         '
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(316, 44)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(244, 227)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 6
-        Me.PictureBox3.TabStop = False
+        Me.btnCadastrarCliente.Image = CType(resources.GetObject("btnCadastrarCliente.Image"), System.Drawing.Image)
+        Me.btnCadastrarCliente.Location = New System.Drawing.Point(23, 336)
+        Me.btnCadastrarCliente.Name = "btnCadastrarCliente"
+        Me.btnCadastrarCliente.Size = New System.Drawing.Size(104, 40)
+        Me.btnCadastrarCliente.TabIndex = 75
+        Me.btnCadastrarCliente.Text = "Cadastrar"
+        Me.btnCadastrarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCadastrarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.btnCadastrarCliente.UseVisualStyleBackColor = True
         '
-        'txtCadastrarSenha
+        'Label17
         '
-        Me.txtCadastrarSenha.Location = New System.Drawing.Point(58, 228)
-        Me.txtCadastrarSenha.Name = "txtCadastrarSenha"
-        Me.txtCadastrarSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtCadastrarSenha.Size = New System.Drawing.Size(207, 23)
-        Me.txtCadastrarSenha.TabIndex = 5
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(21, 134)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(43, 15)
+        Me.Label17.TabIndex = 74
+        Me.Label17.Text = "Nome:"
         '
-        'Label7
+        'txtEmailCliente
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(58, 210)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(45, 15)
-        Me.Label7.TabIndex = 4
-        Me.Label7.Text = "Senha: "
+        Me.txtEmailCliente.Location = New System.Drawing.Point(273, 292)
+        Me.txtEmailCliente.Name = "txtEmailCliente"
+        Me.txtEmailCliente.Size = New System.Drawing.Size(287, 23)
+        Me.txtEmailCliente.TabIndex = 67
         '
-        'txtCadastrarEmail
+        'Label18
         '
-        Me.txtCadastrarEmail.Location = New System.Drawing.Point(58, 178)
-        Me.txtCadastrarEmail.Name = "txtCadastrarEmail"
-        Me.txtCadastrarEmail.Size = New System.Drawing.Size(207, 23)
-        Me.txtCadastrarEmail.TabIndex = 3
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(273, 274)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(39, 15)
+        Me.Label18.TabIndex = 73
+        Me.Label18.Text = "Email:"
         '
-        'Label6
+        'txtCelularCliente
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(58, 160)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(42, 15)
-        Me.Label6.TabIndex = 2
-        Me.Label6.Text = "Email: "
+        Me.txtCelularCliente.Location = New System.Drawing.Point(173, 292)
+        Me.txtCelularCliente.Mask = "(99) 99999-9999"
+        Me.txtCelularCliente.Name = "txtCelularCliente"
+        Me.txtCelularCliente.Size = New System.Drawing.Size(94, 23)
+        Me.txtCelularCliente.TabIndex = 66
+        Me.txtCelularCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'txtCadastrarLogin
+        'Label19
         '
-        Me.txtCadastrarLogin.Location = New System.Drawing.Point(58, 126)
-        Me.txtCadastrarLogin.Name = "txtCadastrarLogin"
-        Me.txtCadastrarLogin.Size = New System.Drawing.Size(207, 23)
-        Me.txtCadastrarLogin.TabIndex = 1
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(173, 274)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(47, 15)
+        Me.Label19.TabIndex = 72
+        Me.Label19.Text = "Celular:"
         '
-        'Label5
+        'txtTelefoneCliente
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(58, 108)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(43, 15)
-        Me.Label5.TabIndex = 0
-        Me.Label5.Text = "Login: "
+        Me.txtTelefoneCliente.Location = New System.Drawing.Point(73, 292)
+        Me.txtTelefoneCliente.Mask = "(99) 9999-9999"
+        Me.txtTelefoneCliente.Name = "txtTelefoneCliente"
+        Me.txtTelefoneCliente.Size = New System.Drawing.Size(94, 23)
+        Me.txtTelefoneCliente.TabIndex = 64
+        Me.txtTelefoneCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtUFCliente
+        '
+        Me.txtUFCliente.Location = New System.Drawing.Point(23, 292)
+        Me.txtUFCliente.Name = "txtUFCliente"
+        Me.txtUFCliente.Size = New System.Drawing.Size(45, 23)
+        Me.txtUFCliente.TabIndex = 62
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(23, 274)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(24, 15)
+        Me.Label20.TabIndex = 71
+        Me.Label20.Text = "UF:"
+        '
+        'txtCidadeCliente
+        '
+        Me.txtCidadeCliente.Location = New System.Drawing.Point(335, 241)
+        Me.txtCidadeCliente.Name = "txtCidadeCliente"
+        Me.txtCidadeCliente.Size = New System.Drawing.Size(225, 23)
+        Me.txtCidadeCliente.TabIndex = 61
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(335, 223)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(47, 15)
+        Me.Label21.TabIndex = 70
+        Me.Label21.Text = "Cidade:"
+        '
+        'txtBairroCliente
+        '
+        Me.txtBairroCliente.Location = New System.Drawing.Point(173, 241)
+        Me.txtBairroCliente.Name = "txtBairroCliente"
+        Me.txtBairroCliente.Size = New System.Drawing.Size(156, 23)
+        Me.txtBairroCliente.TabIndex = 60
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(173, 223)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(41, 15)
+        Me.Label22.TabIndex = 69
+        Me.Label22.Text = "Bairro:"
+        '
+        'txtComplementoCliente
+        '
+        Me.txtComplementoCliente.Location = New System.Drawing.Point(21, 241)
+        Me.txtComplementoCliente.Name = "txtComplementoCliente"
+        Me.txtComplementoCliente.Size = New System.Drawing.Size(144, 23)
+        Me.txtComplementoCliente.TabIndex = 58
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(21, 223)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(87, 15)
+        Me.Label23.TabIndex = 68
+        Me.Label23.Text = "Complemento:"
+        '
+        'txtEnderecoCliente
+        '
+        Me.txtEnderecoCliente.Location = New System.Drawing.Point(119, 197)
+        Me.txtEnderecoCliente.Name = "txtEnderecoCliente"
+        Me.txtEnderecoCliente.Size = New System.Drawing.Size(441, 23)
+        Me.txtEnderecoCliente.TabIndex = 57
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(119, 179)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(59, 15)
+        Me.Label24.TabIndex = 65
+        Me.Label24.Text = "Endereço:"
+        '
+        'txtCEPCliente
+        '
+        Me.txtCEPCliente.Location = New System.Drawing.Point(21, 197)
+        Me.txtCEPCliente.Mask = "99999-999"
+        Me.txtCEPCliente.Name = "txtCEPCliente"
+        Me.txtCEPCliente.Size = New System.Drawing.Size(83, 23)
+        Me.txtCEPCliente.TabIndex = 55
+        Me.txtCEPCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(21, 179)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(31, 15)
+        Me.Label25.TabIndex = 63
+        Me.Label25.Text = "CEP:"
+        '
+        'txtCliente
+        '
+        Me.txtCliente.Location = New System.Drawing.Point(22, 152)
+        Me.txtCliente.Name = "txtCliente"
+        Me.txtCliente.Size = New System.Drawing.Size(538, 23)
+        Me.txtCliente.TabIndex = 54
+        '
+        'txtDataNascCliente
+        '
+        Me.txtDataNascCliente.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.txtDataNascCliente.Location = New System.Drawing.Point(233, 105)
+        Me.txtDataNascCliente.Name = "txtDataNascCliente"
+        Me.txtDataNascCliente.Size = New System.Drawing.Size(143, 23)
+        Me.txtDataNascCliente.TabIndex = 59
+        Me.txtDataNascCliente.Value = New Date(2021, 11, 22, 0, 0, 0, 0)
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(233, 87)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(104, 15)
+        Me.Label26.TabIndex = 56
+        Me.Label26.Text = "Data Nascimento: "
+        '
+        'txtCPFCliente
+        '
+        Me.txtCPFCliente.Location = New System.Drawing.Point(22, 105)
+        Me.txtCPFCliente.Mask = "999.999.999-99"
+        Me.txtCPFCliente.Name = "txtCPFCliente"
+        Me.txtCPFCliente.Size = New System.Drawing.Size(145, 23)
+        Me.txtCPFCliente.TabIndex = 53
+        Me.txtCPFCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(23, 87)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(31, 15)
+        Me.Label27.TabIndex = 52
+        Me.Label27.Text = "CPF:"
         '
         'tbRegistrarPedido
         '
         Me.tbRegistrarPedido.BackColor = System.Drawing.Color.SkyBlue
-        Me.tbRegistrarPedido.Controls.Add(Me.txtNomeCliente)
+        Me.tbRegistrarPedido.Controls.Add(Me.txtNomePedido)
         Me.tbRegistrarPedido.Controls.Add(Me.Label14)
         Me.tbRegistrarPedido.Controls.Add(Me.txtDataPedido)
         Me.tbRegistrarPedido.Controls.Add(Me.Label13)
@@ -659,17 +917,17 @@ Partial Class frmMenu
         Me.tbRegistrarPedido.Location = New System.Drawing.Point(4, 24)
         Me.tbRegistrarPedido.Name = "tbRegistrarPedido"
         Me.tbRegistrarPedido.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbRegistrarPedido.Size = New System.Drawing.Size(580, 396)
+        Me.tbRegistrarPedido.Size = New System.Drawing.Size(580, 399)
         Me.tbRegistrarPedido.TabIndex = 3
         Me.tbRegistrarPedido.Text = "Registrar Pedidos"
         Me.tbRegistrarPedido.ToolTipText = "Registro de Pedidos"
         '
-        'txtNomeCliente
+        'txtNomePedido
         '
-        Me.txtNomeCliente.Location = New System.Drawing.Point(73, 171)
-        Me.txtNomeCliente.Name = "txtNomeCliente"
-        Me.txtNomeCliente.Size = New System.Drawing.Size(225, 23)
-        Me.txtNomeCliente.TabIndex = 57
+        Me.txtNomePedido.Location = New System.Drawing.Point(73, 171)
+        Me.txtNomePedido.Name = "txtNomePedido"
+        Me.txtNomePedido.Size = New System.Drawing.Size(225, 23)
+        Me.txtNomePedido.TabIndex = 57
         '
         'Label14
         '
@@ -781,7 +1039,7 @@ Partial Class frmMenu
         Me.tbVisualizarPedidos.Location = New System.Drawing.Point(4, 24)
         Me.tbVisualizarPedidos.Name = "tbVisualizarPedidos"
         Me.tbVisualizarPedidos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbVisualizarPedidos.Size = New System.Drawing.Size(580, 396)
+        Me.tbVisualizarPedidos.Size = New System.Drawing.Size(580, 399)
         Me.tbVisualizarPedidos.TabIndex = 4
         Me.tbVisualizarPedidos.Text = "Visualizar Pedidos"
         '
@@ -825,13 +1083,44 @@ Partial Class frmMenu
         Me.precoPedido.HeaderText = "Preço"
         Me.precoPedido.Name = "precoPedido"
         '
+        'tbTotalVendas
+        '
+        Me.tbTotalVendas.Controls.Add(Me.dgvTotal)
+        Me.tbTotalVendas.Location = New System.Drawing.Point(4, 24)
+        Me.tbTotalVendas.Name = "tbTotalVendas"
+        Me.tbTotalVendas.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbTotalVendas.Size = New System.Drawing.Size(580, 399)
+        Me.tbTotalVendas.TabIndex = 6
+        Me.tbTotalVendas.Text = "Total de Vendas"
+        Me.tbTotalVendas.UseVisualStyleBackColor = True
+        '
+        'dgvTotal
+        '
+        Me.dgvTotal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvTotal.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.qtdVendas, Me.valorTotal})
+        Me.dgvTotal.Location = New System.Drawing.Point(0, 0)
+        Me.dgvTotal.Name = "dgvTotal"
+        Me.dgvTotal.RowTemplate.Height = 25
+        Me.dgvTotal.Size = New System.Drawing.Size(577, 396)
+        Me.dgvTotal.TabIndex = 0
+        '
+        'qtdVendas
+        '
+        Me.qtdVendas.HeaderText = "Qtd Vendas"
+        Me.qtdVendas.Name = "qtdVendas"
+        '
+        'valorTotal
+        '
+        Me.valorTotal.HeaderText = "Valor Total"
+        Me.valorTotal.Name = "valorTotal"
+        '
         'frmMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(587, 425)
         Me.Controls.Add(Me.tbControle)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -845,14 +1134,16 @@ Partial Class frmMenu
         Me.tbCadastro.ResumeLayout(False)
         Me.tbCadastro.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tbLogin.ResumeLayout(False)
-        Me.tbLogin.PerformLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tbClientes.ResumeLayout(False)
+        Me.tbClientes.PerformLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbRegistrarPedido.ResumeLayout(False)
         Me.tbRegistrarPedido.PerformLayout()
         CType(Me.nmrQuantidade, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbVisualizarPedidos.ResumeLayout(False)
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tbTotalVendas.ResumeLayout(False)
+        CType(Me.dgvTotal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -894,20 +1185,6 @@ Partial Class frmMenu
     Friend WithEvents lblTelefone As Label
     Friend WithEvents btnAtualizar As Button
     Friend WithEvents btnPesquisar As Button
-    Friend WithEvents tbLogin As TabPage
-    Friend WithEvents Label8 As Label
-    Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents txtCadastrarSenha As TextBox
-    Friend WithEvents Label7 As Label
-    Friend WithEvents txtCadastrarEmail As TextBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents txtCadastrarLogin As TextBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents btnCadastrarLogin As Button
-    Friend WithEvents chkMostrarSenha As CheckBox
-    Friend WithEvents btnPesquisarLogin As Button
-    Friend WithEvents btnAtualizarLogin As Button
-    Friend WithEvents btnDeletarLogin As Button
     Friend WithEvents tbRegistrarPedido As TabPage
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
@@ -919,7 +1196,6 @@ Partial Class frmMenu
     Friend WithEvents lblPreco As Label
     Friend WithEvents tbVisualizarPedidos As TabPage
     Friend WithEvents dgvDados As DataGridView
-    Friend WithEvents txtNomeCliente As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents txtDataPedido As DateTimePicker
     Friend WithEvents Label13 As Label
@@ -929,4 +1205,47 @@ Partial Class frmMenu
     Friend WithEvents produto As DataGridViewTextBoxColumn
     Friend WithEvents qtdProduto As DataGridViewTextBoxColumn
     Friend WithEvents precoPedido As DataGridViewTextBoxColumn
+    Friend WithEvents chkMostrar As CheckBox
+    Friend WithEvents txtSenhaFunc As TextBox
+    Friend WithEvents Label28 As Label
+    Friend WithEvents txtLoginFunc As TextBox
+    Friend WithEvents Label30 As Label
+    Friend WithEvents tbClientes As TabPage
+    Friend WithEvents btnPesquisarCliente As Button
+    Friend WithEvents btnAtualizarCliente As Button
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents btnDeletarCliente As Button
+    Friend WithEvents btnCadastrarCliente As Button
+    Friend WithEvents Label17 As Label
+    Friend WithEvents txtEmailCliente As TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents txtCelularCliente As MaskedTextBox
+    Friend WithEvents Label19 As Label
+    Friend WithEvents txtTelefoneCliente As MaskedTextBox
+    Friend WithEvents txtUFCliente As TextBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents txtCidadeCliente As TextBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents txtBairroCliente As TextBox
+    Friend WithEvents Label22 As Label
+    Friend WithEvents txtComplementoCliente As TextBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents txtEnderecoCliente As TextBox
+    Friend WithEvents Label24 As Label
+    Friend WithEvents txtCEPCliente As MaskedTextBox
+    Friend WithEvents Label25 As Label
+    Friend WithEvents txtCliente As TextBox
+    Friend WithEvents txtDataNascCliente As DateTimePicker
+    Friend WithEvents Label26 As Label
+    Friend WithEvents txtCPFCliente As MaskedTextBox
+    Friend WithEvents Label27 As Label
+    Friend WithEvents tbTotalVendas As TabPage
+    Friend WithEvents dgvTotal As DataGridView
+    Friend WithEvents lblFuncao As Label
+    Friend WithEvents cmbFuncao As ComboBox
+    Friend WithEvents txtNomePedido As TextBox
+    Friend WithEvents qtdVendas As DataGridViewTextBoxColumn
+    Friend WithEvents valorTotal As DataGridViewTextBoxColumn
 End Class

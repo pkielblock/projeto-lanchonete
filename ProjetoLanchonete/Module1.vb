@@ -3,7 +3,7 @@
     Public rs As New ADODB.Recordset
     Public sql, login As String
     Public cont, id As Integer
-    Public preco As Double
+    Public preco, total As Double
     Public resp As String
 
     Sub connectDb()
@@ -41,6 +41,8 @@
                 .txtTelefone.Clear()
                 .txtCelular.Clear()
                 .txtEmail.Clear()
+                .txtLoginFunc.Clear()
+                .txtSenhaFunc.Clear()
                 .txtCPF.Focus()
             End With
         Catch ex As Exception
@@ -48,19 +50,28 @@
         End Try
     End Sub
 
-    Sub limparLogin()
+    Sub limparClientes()
         Try
             With frmMenu
-                .txtCadastrarLogin.Clear()
-                .txtCadastrarEmail.Clear()
-                .txtCadastrarSenha.Clear()
-                .chkMostrarSenha.Checked = False
-                .txtCadastrarLogin.Focus()
+                .txtCPFCliente.Clear()
+                .txtDataNascCliente.Text = Date.Now
+                .txtCliente.Clear()
+                .txtCEPCliente.Clear()
+                .txtEnderecoCliente.Clear()
+                .txtComplementoCliente.Clear()
+                .txtBairroCliente.Clear()
+                .txtCidadeCliente.Clear()
+                .txtUFCliente.Clear()
+                .txtTelefoneCliente.Clear()
+                .txtCelularCliente.Clear()
+                .txtEmailCliente.Clear()
+                .txtCPFCliente.Focus()
             End With
         Catch ex As Exception
             MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
+
     Sub carregarDados()
         Try
             sql = "select * from tbpedidos order by cliente asc"
@@ -71,9 +82,14 @@
                 .Rows.Clear()
                 Do While rs.EOF = False
                     .Rows.Add(cont, rs.Fields(0).Value, rs.Fields(1).Value, rs.Fields(2).Value, rs.Fields(3).Value, rs.Fields(4).Value)
+                    total += rs.Fields(4).Value
                     rs.MoveNext()
                     cont += 1
                 Loop
+            End With
+            With frmMenu.dgvTotal
+                .Rows.Clear()
+                .Rows.Add(cont, total)
             End With
         Catch ex As Exception
             MsgBox("Error", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Warning")
