@@ -5,7 +5,11 @@
 
     Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+
             lblUsuario.Text = login
+            cmbMes.Text = Month(Now())
+            cmbAno.Text = Year(Now())
+            carregarTotal()
 
             If login = "admin" Then
                 tbControle.TabPages(1).Enabled = True
@@ -110,21 +114,22 @@
             End If
             resp = MsgBox("Deseja Realmente Excluir o Registro" + vbCrLf + "CPF: " & txtCPF.Text & "?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Atenção")
             If resp = MsgBoxResult.Yes Then
-                sql = "delete * from tbfuncionarios where cpf='" & txtCPF.Text & "'"
+                sql = "delete from tbfuncionarios where cpf='" & txtCPF.Text & "'"
                 rs = db.Execute(sql)
+                limparCadastro()
             ElseIf MsgBoxResult.No Then
                 Exit Sub
             Else
                 MsgBox("CPF Não Localizado", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
             End If
         Catch ex As Exception
-            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            MsgBox("Erro" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
 
     Private Sub txtCEP_LostFocus(sender As Object, e As EventArgs) Handles txtCEP.LostFocus
         Try
-            sql = "select * from tb_cep where cep='" & txtCEP.Text & "'"
+            sql = "select from tb_cep where cep='" & txtCEP.Text & "'"
             rs = db.Execute(sql)
             If rs.EOF = False Then
                 txtEndereco.Text = rs.Fields(1).Value
@@ -159,8 +164,7 @@
                 MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
                 Exit Sub
             Else
-                sql = "update tbfuncionarios set  cpf = '" & txtCPF.Text & "', " &
-                                                 "dataNasc = '" & txtDataNasc.Text & "', " &
+                sql = "update tbfuncionarios set dataNasc = '" & txtDataNasc.Text & "', " &
                                                  "nome = '" & txtNome.Text & "', " &
                                                  "cep = '" & txtCEP.Text & "', " &
                                                  "endereco = '" & txtEndereco.Text & "', " &
@@ -172,13 +176,12 @@
                                                  "celular = '" & txtCelular.Text & "', " &
                                                  "email = '" & txtEmail.Text & "', " &
                                                  "login = '" & txtLoginFunc.Text & "', " &
-                                                 "senha = '" & txtSenhaFunc.Text & "'"
+                                                 "senha = '" & txtSenhaFunc.Text & "'  where cpf= '" & txtCPF.Text & "'"
                 rs = db.Execute(sql)
                 MsgBox("Dados Atualizados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
-                limparCadastro()
             End If
         Catch ex As Exception
-            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            MsgBox("Erro" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
 
@@ -204,18 +207,18 @@
         Try
             If cmbProdutos.Text = "" Or
                 nmrQuantidade.Value = 0 Or
-                txtNomePedido.Text = "" Or
-                txtDataPedido.Text = "" Then
+                txtNomePedido.Text = "" Then
                 MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
                 Exit Sub
             End If
-            sql = "insert into tbpedidos values('" & txtNomePedido.Text & "', " &
-                                                 "'" & txtDataPedido.Text & "', " &
+            sql = "INSERT INTO tbpedidos(cliente, data, produto, qtd, preco) values('" & txtNomePedido.Text & "', " &
+                                                 "Now(), " &
                                                  "'" & cmbProdutos.Text & "', " &
                                                  "'" & nmrQuantidade.Value & "', " &
                                                  "'" & preco & "')"
             rs = db.Execute(sql)
             carregarDados()
+            carregarTotal()
             MsgBox("Dados Gravados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
         Catch ex As Exception
             MsgBox("Erro" & ex.Message(), MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
@@ -299,8 +302,9 @@
             End If
             resp = MsgBox("Deseja Realmente Excluir o Registro" + vbCrLf + "CPF: " & txtCPFCliente.Text & "?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Atenção")
             If resp = MsgBoxResult.Yes Then
-                sql = "delete * from tbclientes where cpf='" & txtCPFCliente.Text & "'"
+                sql = "delete from tbclientes where cpf='" & txtCPFCliente.Text & "'"
                 rs = db.Execute(sql)
+                limparClientes()
             ElseIf MsgBoxResult.No Then
                 Exit Sub
             Else
@@ -352,9 +356,8 @@
                 MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
                 Exit Sub
             Else
-                sql = "update tbclientes set  cpf = '" & txtCPFCliente.Text & "', " &
-                                                 "dataNasc = '" & txtDataNascCliente.Text & "', " &
-                                                 "cliente = '" & txtCliente.Text & "', " &
+                sql = "update tbclientes  set    dataNasc = '" & txtDataNascCliente.Text & "', " &
+                                                 "nome = '" & txtCliente.Text & "', " &
                                                  "cep = '" & txtCEPCliente.Text & "', " &
                                                  "endereco = '" & txtEnderecoCliente.Text & "', " &
                                                  "comp = '" & txtComplementoCliente.Text & "', " &
@@ -363,13 +366,18 @@
                                                  "uf = '" & txtUFCliente.Text & "', " &
                                                  "telefone = '" & txtTelefoneCliente.Text & "', " &
                                                  "celular = '" & txtCelularCliente.Text & "', " &
-                                                 "email = '" & txtEmailCliente.Text & "'"
+                                                 "email = '" & txtEmailCliente.Text & "' where cpf= '" & txtCPFCliente.Text & "'"
                 rs = db.Execute(sql)
                 MsgBox("Dados Atualizados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
                 limparCadastro()
             End If
         Catch ex As Exception
-            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            MsgBox("Erro" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbMes.SelectedIndexChanged
+        carregarTotal()
+    End Sub
+
 End Class

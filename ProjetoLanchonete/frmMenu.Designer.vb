@@ -101,8 +101,6 @@ Partial Class frmMenu
         Me.tbRegistrarPedido = New System.Windows.Forms.TabPage()
         Me.txtNomePedido = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.txtDataPedido = New System.Windows.Forms.DateTimePicker()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.btnCadastrarPedido = New System.Windows.Forms.Button()
         Me.lblPreco = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -120,6 +118,10 @@ Partial Class frmMenu
         Me.qtdProduto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.precoPedido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tbTotalVendas = New System.Windows.Forms.TabPage()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.cmbAno = New System.Windows.Forms.ComboBox()
+        Me.cmbMes = New System.Windows.Forms.ComboBox()
         Me.dgvTotal = New System.Windows.Forms.DataGridView()
         Me.qtdVendas = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.valorTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -904,8 +906,6 @@ Partial Class frmMenu
         Me.tbRegistrarPedido.BackColor = System.Drawing.Color.SkyBlue
         Me.tbRegistrarPedido.Controls.Add(Me.txtNomePedido)
         Me.tbRegistrarPedido.Controls.Add(Me.Label14)
-        Me.tbRegistrarPedido.Controls.Add(Me.txtDataPedido)
-        Me.tbRegistrarPedido.Controls.Add(Me.Label13)
         Me.tbRegistrarPedido.Controls.Add(Me.btnCadastrarPedido)
         Me.tbRegistrarPedido.Controls.Add(Me.lblPreco)
         Me.tbRegistrarPedido.Controls.Add(Me.Label12)
@@ -926,7 +926,7 @@ Partial Class frmMenu
         '
         Me.txtNomePedido.Location = New System.Drawing.Point(73, 171)
         Me.txtNomePedido.Name = "txtNomePedido"
-        Me.txtNomePedido.Size = New System.Drawing.Size(225, 23)
+        Me.txtNomePedido.Size = New System.Drawing.Size(389, 23)
         Me.txtNomePedido.TabIndex = 57
         '
         'Label14
@@ -937,24 +937,6 @@ Partial Class frmMenu
         Me.Label14.Size = New System.Drawing.Size(86, 15)
         Me.Label14.TabIndex = 56
         Me.Label14.Text = "Nome Cliente: "
-        '
-        'txtDataPedido
-        '
-        Me.txtDataPedido.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.txtDataPedido.Location = New System.Drawing.Point(319, 171)
-        Me.txtDataPedido.Name = "txtDataPedido"
-        Me.txtDataPedido.Size = New System.Drawing.Size(143, 23)
-        Me.txtDataPedido.TabIndex = 55
-        Me.txtDataPedido.Value = New Date(2021, 11, 22, 0, 0, 0, 0)
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(319, 153)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(74, 15)
-        Me.Label13.TabIndex = 54
-        Me.Label13.Text = "Data Pedido:"
         '
         'btnCadastrarPedido
         '
@@ -1085,6 +1067,10 @@ Partial Class frmMenu
         '
         'tbTotalVendas
         '
+        Me.tbTotalVendas.Controls.Add(Me.Label7)
+        Me.tbTotalVendas.Controls.Add(Me.Label6)
+        Me.tbTotalVendas.Controls.Add(Me.cmbAno)
+        Me.tbTotalVendas.Controls.Add(Me.cmbMes)
         Me.tbTotalVendas.Controls.Add(Me.dgvTotal)
         Me.tbTotalVendas.Location = New System.Drawing.Point(4, 24)
         Me.tbTotalVendas.Name = "tbTotalVendas"
@@ -1093,6 +1079,44 @@ Partial Class frmMenu
         Me.tbTotalVendas.TabIndex = 6
         Me.tbTotalVendas.Text = "Total de Vendas"
         Me.tbTotalVendas.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label7.Location = New System.Drawing.Point(461, 31)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(38, 21)
+        Me.Label7.TabIndex = 5
+        Me.Label7.Text = "Ano"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label6.Location = New System.Drawing.Point(334, 31)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(39, 21)
+        Me.Label6.TabIndex = 4
+        Me.Label6.Text = "Mês"
+        '
+        'cmbAno
+        '
+        Me.cmbAno.FormattingEnabled = True
+        Me.cmbAno.Items.AddRange(New Object() {"2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033"})
+        Me.cmbAno.Location = New System.Drawing.Point(422, 55)
+        Me.cmbAno.Name = "cmbAno"
+        Me.cmbAno.Size = New System.Drawing.Size(121, 23)
+        Me.cmbAno.TabIndex = 2
+        '
+        'cmbMes
+        '
+        Me.cmbMes.FormattingEnabled = True
+        Me.cmbMes.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
+        Me.cmbMes.Location = New System.Drawing.Point(295, 55)
+        Me.cmbMes.Name = "cmbMes"
+        Me.cmbMes.Size = New System.Drawing.Size(121, 23)
+        Me.cmbMes.TabIndex = 1
         '
         'dgvTotal
         '
@@ -1143,6 +1167,7 @@ Partial Class frmMenu
         Me.tbVisualizarPedidos.ResumeLayout(False)
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbTotalVendas.ResumeLayout(False)
+        Me.tbTotalVendas.PerformLayout()
         CType(Me.dgvTotal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -1248,4 +1273,8 @@ Partial Class frmMenu
     Friend WithEvents txtNomePedido As TextBox
     Friend WithEvents qtdVendas As DataGridViewTextBoxColumn
     Friend WithEvents valorTotal As DataGridViewTextBoxColumn
+    Friend WithEvents Label6 As Label
+    Friend WithEvents cmbAno As ComboBox
+    Friend WithEvents cmbMes As ComboBox
+    Friend WithEvents Label7 As Label
 End Class

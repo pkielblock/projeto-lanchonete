@@ -9,7 +9,7 @@
     Sub connectDb()
         Try
             db = CreateObject("ADODB.Connection")
-            db.Open("DRIVER={MySQL ODBC 3.51 Driver};Database=lanchonetexande;Server=localhost;port=3307;UID=root;PWD=usbw;")
+            db.Open("DRIVER={MySQL ODBC 3.51 Driver};Database=lanchonetexande;Server=localhost;port=3306;UID=root;PWD=usbw;")
         Catch ex As Exception
             MsgBox("Conexão com o banco de dados falhou com o seguinte erro: " & vbCrLf & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "ATENÇÃO")
         End Try
@@ -81,16 +81,40 @@
                 cont = 1
                 .Rows.Clear()
                 Do While rs.EOF = False
-                    .Rows.Add(cont, rs.Fields(0).Value, rs.Fields(1).Value, rs.Fields(2).Value, rs.Fields(3).Value, rs.Fields(4).Value)
-                    total += rs.Fields(4).Value
+                    .Rows.Add(rs.Fields(0).Value, rs.Fields(1).Value, rs.Fields(2).Value, rs.Fields(3).Value, rs.Fields(4).Value, rs.Fields(5).Value)
                     rs.MoveNext()
                     cont += 1
                 Loop
             End With
-            With frmMenu.dgvTotal
-                .Rows.Clear()
-                .Rows.Add(cont, total)
-            End With
+        Catch ex As Exception
+            MsgBox("Error", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Warning")
+        End Try
+    End Sub
+
+    Sub carregarTotal()
+        Try
+            Try
+                sql = "SELECT * FROM tbpedidos WHERE MONTH(data) = " & frmMenu.cmbMes.Text & " AND YEAR(data) = " & frmMenu.cmbAno.Text & ""
+                rs = db.Execute(sql)
+
+                With frmMenu.dgvTotal
+                    cont = 0
+                    total = 0
+                    .Rows.Clear()
+                    Do While rs.EOF = False
+                        total += rs.Fields(5).Value
+                        rs.MoveNext()
+                        cont += 1
+                    Loop
+                    .Rows.Add(total)
+                End With
+                With frmMenu.dgvTotal
+                    .Rows.Clear()
+                    .Rows.Add(cont, total)
+                End With
+            Catch ex As Exception
+                MsgBox("Error" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Warning")
+            End Try
         Catch ex As Exception
             MsgBox("Error", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Warning")
         End Try

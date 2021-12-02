@@ -5,7 +5,10 @@
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        SendKeys.Send("{ENTER}")
         Try
+            frmMenu.cmbMes.Text = Month(Now())
+            frmMenu.cmbAno.Text = Year(Now())
             If txtLogin.Text = "" Or txtSenha.Text = "" Then
                 MsgBox("Preencha Todos os Campos!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")
             Else
@@ -47,4 +50,5 @@
             MsgBox("Erro" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
+
 End Class
