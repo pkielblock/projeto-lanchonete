@@ -9,9 +9,9 @@
     Sub connectDb()
         Try
             db = CreateObject("ADODB.Connection")
-            db.Open("DRIVER={MySQL ODBC 3.51 Driver};Database=lanchonetexande;Server=localhost;port=3306;UID=root;PWD=usbw;")
+            db.Open("DRIVER={MySQL ODBC 3.51 Driver};Database=lanchonetexande;Server=localhost;port=3307;UID=root;PWD=usbw;")
         Catch ex As Exception
-            MsgBox("Conexão com o banco de dados falhou com o seguinte erro: " & vbCrLf & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "ATENÇÃO")
+            MsgBox("Conexão com o banco de dados falhou!", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "ATENÇÃO")
         End Try
     End Sub
     Sub sair()
@@ -74,7 +74,7 @@
 
     Sub carregarDados()
         Try
-            sql = "select * from tbpedidos order by cliente asc"
+            sql = "select * from tbpedidos order by data desc"
             rs = db.Execute(sql)
 
             With frmMenu.dgvDados
@@ -87,14 +87,14 @@
                 Loop
             End With
         Catch ex As Exception
-            MsgBox("Error", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Warning")
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Warning")
         End Try
     End Sub
 
     Sub carregarTotal()
         Try
             Try
-                sql = "SELECT * FROM tbpedidos WHERE MONTH(data) = " & frmMenu.cmbMes.Text & " AND YEAR(data) = " & frmMenu.cmbAno.Text & ""
+                sql = "SELECT * FROM tbpedidos WHERE MONTH(data) = '" & frmMenu.cmbMes.Text & " AND YEAR(data) = " & frmMenu.cmbAno.Text & "'"
                 rs = db.Execute(sql)
 
                 With frmMenu.dgvTotal
@@ -113,10 +113,10 @@
                     .Rows.Add(cont, total)
                 End With
             Catch ex As Exception
-                MsgBox("Error" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Warning")
+                MsgBox("Erro" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Warning")
             End Try
         Catch ex As Exception
-            MsgBox("Error", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Warning")
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Warning")
         End Try
     End Sub
 End Module

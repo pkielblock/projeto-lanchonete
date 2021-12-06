@@ -5,7 +5,6 @@
 
     Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-
             lblUsuario.Text = login
             cmbMes.Text = Month(Now())
             cmbAno.Text = Year(Now())
@@ -30,7 +29,7 @@
                 End If
             Next
         Catch ex As Exception
-            MsgBox("Erro" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
 
@@ -123,13 +122,13 @@
                 MsgBox("CPF Não Localizado", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
             End If
         Catch ex As Exception
-            MsgBox("Erro" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
 
     Private Sub txtCEP_LostFocus(sender As Object, e As EventArgs) Handles txtCEP.LostFocus
         Try
-            sql = "select from tb_cep where cep='" & txtCEP.Text & "'"
+            sql = "select * from tb_cep where cep='" & txtCEP.Text & "'"
             rs = db.Execute(sql)
             If rs.EOF = False Then
                 txtEndereco.Text = rs.Fields(1).Value
@@ -181,7 +180,7 @@
                 MsgBox("Dados Atualizados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
             End If
         Catch ex As Exception
-            MsgBox("Erro" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
 
@@ -221,7 +220,7 @@
             carregarTotal()
             MsgBox("Dados Gravados", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
         Catch ex As Exception
-            MsgBox("Erro" & ex.Message(), MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
 
@@ -271,13 +270,13 @@
                 limparClientes()
             End If
         Catch ex As Exception
-            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            MsgBox("Erro" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
 
     Private Sub txtCEPCliente_LostFocus(sender As Object, e As EventArgs) Handles txtCEPCliente.LostFocus
         Try
-            sql = "select * from tb_cep where cep='" & txtCEP.Text & "'"
+            sql = "select * from tb_cep where cep='" & txtCEPCliente.Text & "'"
             rs = db.Execute(sql)
             If rs.EOF = False Then
                 txtEnderecoCliente.Text = rs.Fields(1).Value
@@ -372,12 +371,11 @@
                 limparCadastro()
             End If
         Catch ex As Exception
-            MsgBox("Erro" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbMes.SelectedIndexChanged
         carregarTotal()
     End Sub
-
 End Class

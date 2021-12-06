@@ -5,7 +5,6 @@
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        SendKeys.Send("{ENTER}")
         Try
             frmMenu.cmbMes.Text = Month(Now())
             frmMenu.cmbAno.Text = Year(Now())
@@ -31,7 +30,7 @@
                 End If
             End If
         Catch ex As Exception
-            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            MsgBox("Erro" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
 
@@ -47,7 +46,7 @@
                 txtSenha.PasswordChar = "•"
             End If
         Catch ex As Exception
-            MsgBox("Erro" & ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
+            MsgBox("Erro", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção")
         End Try
     End Sub
 

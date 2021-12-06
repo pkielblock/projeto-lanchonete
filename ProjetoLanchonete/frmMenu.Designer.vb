@@ -1084,7 +1084,7 @@ Partial Class frmMenu
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.Location = New System.Drawing.Point(461, 31)
+        Me.Label7.Location = New System.Drawing.Point(460, 3)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(38, 21)
         Me.Label7.TabIndex = 5
@@ -1094,7 +1094,7 @@ Partial Class frmMenu
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label6.Location = New System.Drawing.Point(334, 31)
+        Me.Label6.Location = New System.Drawing.Point(334, 3)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(39, 21)
         Me.Label6.TabIndex = 4
@@ -1104,7 +1104,7 @@ Partial Class frmMenu
         '
         Me.cmbAno.FormattingEnabled = True
         Me.cmbAno.Items.AddRange(New Object() {"2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033"})
-        Me.cmbAno.Location = New System.Drawing.Point(422, 55)
+        Me.cmbAno.Location = New System.Drawing.Point(420, 27)
         Me.cmbAno.Name = "cmbAno"
         Me.cmbAno.Size = New System.Drawing.Size(121, 23)
         Me.cmbAno.TabIndex = 2
@@ -1113,7 +1113,7 @@ Partial Class frmMenu
         '
         Me.cmbMes.FormattingEnabled = True
         Me.cmbMes.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
-        Me.cmbMes.Location = New System.Drawing.Point(295, 55)
+        Me.cmbMes.Location = New System.Drawing.Point(293, 27)
         Me.cmbMes.Name = "cmbMes"
         Me.cmbMes.Size = New System.Drawing.Size(121, 23)
         Me.cmbMes.TabIndex = 1
